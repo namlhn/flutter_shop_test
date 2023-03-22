@@ -18,4 +18,4 @@ const int tokenExpireTime = 5;
 const String issuerName = 'EShopTest';
 
 const String baseUrl = 'https://eshopweb.store/app/v1/api/';
-const String jwtKey = "02bb05926be71662de2373966c468accb04b6b90";
+const String jwtKey = "75780a235d4193fc8fd39e527eb1ab3ba60b14ad";

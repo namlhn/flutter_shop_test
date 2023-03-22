@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:collection/src/iterable_extensions.dart';
@@ -15,6 +16,7 @@ import 'package:eshop/Screen/ReviewList.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -1672,11 +1674,11 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
             List<Product>? prList = [];
             prList.add(model1);
             context.read<CartProvider>().addCartItem(SectionModel(
-              qty: qty,
-              productList: prList,
-              varientId: model1.prVarientList![_oldSelVarient].id!,
-              id: model1.id,
-            ));
+                  qty: qty,
+                  productList: prList,
+                  varientId: model1.prVarientList![_oldSelVarient].id!,
+                  id: model1.id,
+                ));
             Future.delayed(const Duration(milliseconds: 100)).then((_) async {
               if (from && intent) {
                 cartTotalClear();
@@ -3182,6 +3184,24 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
   }
 
   Future<void> getProductDetails() async {
+    var getdata = await readJsonAssets('assets/data/product744.json');
+    List mainlist = getdata['data'];
+
+    if (mainlist.isNotEmpty) {
+      List<Product> items = [];
+
+      items.addAll(
+          mainlist.map((data) => Product.fromJson(data)).toList());
+      productData = items[0];
+
+      /*context
+                  .read<ProductDetailProvider>()
+                  .setDiffTime(isSaleOn: items[0].isSalesOn!,);*/
+
+      await allApiAndFun();
+      setState(() {});
+    }
+    /*
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
       try {
@@ -3236,10 +3256,48 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
           _isNetworkAvail = false;
         });
       }
-    }
+    }*/
+
   }
 
   Future<void> getProduct1() async {
+    var getdata = await readJsonAssets('assets/data/productsample.json');
+    var parameter = {
+      CATID: productData!.categoryId,
+      ID: productData!.id,
+      IS_SIMILAR: "1"
+    };
+    context
+        .read<ProductDetailProvider>()
+        .setProTotal(int.parse(getdata["total"]));
+
+    List mainlist = getdata['data'];
+
+    if (mainlist.isNotEmpty) {
+      List<Product> items = [];
+      List<Product> allitems = [];
+      productList1 = [];
+
+      items.addAll(mainlist.map((data) => Product.fromJson(data)).toList());
+
+      allitems.addAll(items);
+
+      for (Product item in items) {
+        productList1.where((i) => i.id == item.id).map((obj) {
+          allitems.remove(item);
+          return obj;
+        }).toList();
+      }
+      productList1.addAll(allitems);
+
+      context.read<ProductDetailProvider>().setProductList(productList1);
+
+      context
+          .read<ProductDetailProvider>()
+          .setProOffset(context.read<ProductDetailProvider>().offset + perPage);
+    }
+
+    /*
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
       try {
@@ -3310,7 +3368,13 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
           _isNetworkAvail = false;
         });
       }
-    }
+    }*/
+  }
+
+  Future<dynamic> readJsonAssets(String pathJs) async {
+    final String response = await rootBundle.loadString(pathJs);
+    final data = await json.decode(response);
+    return data;
   }
 
   _specification(Product data) {
