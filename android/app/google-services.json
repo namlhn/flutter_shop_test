@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "744386101664",
+    "project_id": "ocop-fa95e",
+    "storage_bucket": "ocop-fa95e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744386101664:android:2fe6cbdf2966c9f2aa64c5",
+        "android_client_info": {
+          "package_name": "com.wrteam.eshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744386101664-96jo80jtmicdjvblnf8eu5cosne6ft8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHQhAmFoT_cOUxfcFJIPLHFsKcqJnAYhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744386101664-96jo80jtmicdjvblnf8eu5cosne6ft8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

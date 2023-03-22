@@ -1,0 +1,348 @@
+{
+  "error": false,
+  "data": [
+    {
+      "id": "156",
+      "type": "categories",
+      "type_id": "71",
+      "image": "https://eshopweb.store/uploads/media/2021/72.jpeg",
+      "link": "NULL",
+      "date_added": "2021-07-29 12:30:51",
+      "data": [
+        {
+          "id": "71",
+          "name": "Furniture",
+          "parent_id": "0",
+          "slug": "furniture",
+          "image": "https://eshopweb.store/uploads/media/2020/tvunit.png",
+          "banner": "https://eshopweb.store/",
+          "row_order": "33",
+          "status": "1",
+          "clicks": "291",
+          "children": [],
+          "text": "Furniture",
+          "state": {
+            "opened": true
+          },
+          "icon": "jstree-folder",
+          "level": 0,
+          "total": 110
+        }
+      ]
+    },
+    {
+      "id": "155",
+      "type": "categories",
+      "type_id": "114",
+      "image": "https://eshopweb.store/uploads/media/2021/66.jpg",
+      "link": "NULL",
+      "date_added": "2021-07-29 12:30:00",
+      "data": []
+    },
+    {
+      "id": "154",
+      "type": "categories",
+      "type_id": "14",
+      "image": "https://eshopweb.store/uploads/media/2021/510.jpg",
+      "link": "NULL",
+      "date_added": "2021-07-29 12:29:36",
+      "data": [
+        {
+          "id": "14",
+          "name": "Fashion",
+          "parent_id": "0",
+          "slug": "fashion",
+          "image": "https://eshopweb.store/uploads/media/2022/fashion1.png",
+          "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FASHION_BANNER.jpg",
+          "row_order": "0",
+          "status": "1",
+          "clicks": "469",
+          "children": [
+            {
+              "id": "52",
+              "name": "Mens Fashion",
+              "parent_id": "14",
+              "slug": "mens-fashion",
+              "image": "https://eshopweb.store/uploads/media/2020/MEN2.png",
+              "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/1877_copy.jpg",
+              "row_order": "0",
+              "status": "1",
+              "clicks": "428",
+              "children": [
+                {
+                  "id": "53",
+                  "name": "Cloth",
+                  "parent_id": "52",
+                  "slug": "cloth-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/Clothing.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_CLOTHINGS.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "3360",
+                  "children": [
+                    {
+                      "id": "62",
+                      "name": "T-Shirt",
+                      "parent_id": "53",
+                      "slug": "t-shirt-1",
+                      "image": "https://eshopweb.store/uploads/media/2020/mantshirts.jpeg",
+                      "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/banner.jpg",
+                      "row_order": "0",
+                      "status": "1",
+                      "clicks": "4324",
+                      "children": [],
+                      "text": "T-Shirt",
+                      "state": {
+                        "opened": true
+                      },
+                      "level": 3
+                    },
+                    {
+                      "id": "122",
+                      "name": "Shirt",
+                      "parent_id": "53",
+                      "slug": "shirt",
+                      "image": "https://eshopweb.store/uploads/media/2021/download.jpg",
+                      "banner": "https://eshopweb.store/",
+                      "row_order": "0",
+                      "status": "1",
+                      "clicks": "1311",
+                      "children": [],
+                      "text": "Shirt",
+                      "state": {
+                        "opened": true
+                      },
+                      "level": 3
+                    }
+                  ],
+                  "text": "Cloth",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "54",
+                  "name": "Footwears",
+                  "parent_id": "52",
+                  "slug": "footwears",
+                  "image": "https://eshopweb.store/uploads/media/2020/Footwear.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_footwear.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "8876",
+                  "children": [],
+                  "text": "Footwears",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "55",
+                  "name": "Accesories",
+                  "parent_id": "52",
+                  "slug": "accesories",
+                  "image": "https://eshopweb.store/uploads/media/2020/ACCESORIES2.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_accessories.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "3767",
+                  "children": [],
+                  "text": "Accesories",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "85",
+                  "name": "Watche",
+                  "parent_id": "52",
+                  "slug": "watche-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/Watches.png",
+                  "banner": "https://eshopweb.store/",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "973",
+                  "children": [],
+                  "text": "Watche",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                }
+              ],
+              "text": "Mens Fashion",
+              "state": {
+                "opened": true
+              },
+              "level": 1
+            },
+            {
+              "id": "56",
+              "name": "Women's Fashion",
+              "parent_id": "14",
+              "slug": "womens-fashion",
+              "image": "https://eshopweb.store/uploads/media/2020/WOMAN2.png",
+              "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMENS_FASHION.jpg",
+              "row_order": "0",
+              "status": "1",
+              "clicks": "0",
+              "children": [
+                {
+                  "id": "57",
+                  "name": "Clothings",
+                  "parent_id": "56",
+                  "slug": "clothings-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/MEN_CLOTHING4.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_CLOTHINGS.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "1603",
+                  "children": [],
+                  "text": "Clothings",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "58",
+                  "name": "Beauty",
+                  "parent_id": "56",
+                  "slug": "beauty-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/BEAUTY2.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BEAUTY.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "10032",
+                  "children": [],
+                  "text": "Beauty",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "59",
+                  "name": "Footwear's",
+                  "parent_id": "56",
+                  "slug": "footwears-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/BABY_FOOTWEAR2.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WoMEN_footwear.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "2598",
+                  "children": [],
+                  "text": "Footwear's",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "60",
+                  "name": "Accesoriess",
+                  "parent_id": "56",
+                  "slug": "accesoriess-1",
+                  "image": "https://eshopweb.store/uploads/media/2020/WOMEN_ACCESORIES2.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_accessories.jpg",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "2554",
+                  "children": [],
+                  "text": "Accesoriess",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "64",
+                  "name": "Ethnic Wear",
+                  "parent_id": "56",
+                  "slug": "ethnic-wear",
+                  "image": "https://eshopweb.store/uploads/media/2020/fashion2.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2111.png",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "0",
+                  "children": [],
+                  "text": "Ethnic Wear",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                },
+                {
+                  "id": "65",
+                  "name": "JEWELLERY",
+                  "parent_id": "56",
+                  "slug": "jewellery",
+                  "image": "https://eshopweb.store/uploads/media/2020/fashion4.png",
+                  "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2112.png",
+                  "row_order": "0",
+                  "status": "1",
+                  "clicks": "0",
+                  "children": [],
+                  "text": "JEWELLERY",
+                  "state": {
+                    "opened": true
+                  },
+                  "level": 2
+                }
+              ],
+              "text": "Women's Fashion",
+              "state": {
+                "opened": true
+              },
+              "level": 1
+            },
+            {
+              "id": "63",
+              "name": "Kid's Fashion",
+              "parent_id": "14",
+              "slug": "kids-fashion",
+              "image": "https://eshopweb.store/uploads/media/2020/baby2.png",
+              "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/211.png",
+              "row_order": "0",
+              "status": "1",
+              "clicks": "0",
+              "children": [],
+              "text": "Kid's Fashion",
+              "state": {
+                "opened": true
+              },
+              "level": 1
+            },
+            {
+              "id": "66",
+              "name": "Cosmetic",
+              "parent_id": "14",
+              "slug": "cosmetic",
+              "image": "https://eshopweb.store/uploads/media/2020/Group_51461.png",
+              "banner": "https://eshopweb.store/uploads/media/2020/NoPath_-_Copy_(10).png",
+              "row_order": "0",
+              "status": "1",
+              "clicks": "0",
+              "children": [],
+              "text": "Cosmetic",
+              "state": {
+                "opened": true
+              },
+              "level": 1
+            }
+          ],
+          "text": "Fashion",
+          "state": {
+            "opened": true
+          },
+          "icon": "jstree-folder",
+          "level": 0,
+          "total": 110
+        }
+      ]
+    }
+  ]
+}

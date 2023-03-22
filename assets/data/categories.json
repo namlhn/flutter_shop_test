@@ -1,0 +1,1711 @@
+{
+    "message": "Category retrieved successfully",
+    "error": false,
+    "total": 110,
+    "data": [
+        {
+            "id": "14",
+            "name": "Thời trang",
+            "parent_id": "0",
+            "slug": "fashion",
+            "image": "https://eshopweb.store/uploads/media/2022/fashion1.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FASHION_BANNER.jpg",
+            "row_order": "0",
+            "status": "1",
+            "clicks": "469",
+            "children": [
+                {
+                    "id": "52",
+                    "name": "Mens Fashion",
+                    "parent_id": "14",
+                    "slug": "mens-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/MEN2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/1877_copy.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "428",
+                    "children": [
+                        {
+                            "id": "53",
+                            "name": "Cloth",
+                            "parent_id": "52",
+                            "slug": "cloth-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/Clothing.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_CLOTHINGS.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "3360",
+                            "children": [
+                                {
+                                    "id": "62",
+                                    "name": "T-Shirt",
+                                    "parent_id": "53",
+                                    "slug": "t-shirt-1",
+                                    "image": "https://eshopweb.store/uploads/media/2020/mantshirts.jpeg",
+                                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/banner.jpg",
+                                    "row_order": "0",
+                                    "status": "1",
+                                    "clicks": "4324",
+                                    "children": [],
+                                    "text": "T-Shirt",
+                                    "state": {
+                                        "opened": true
+                                    },
+                                    "level": 3
+                                },
+                                {
+                                    "id": "122",
+                                    "name": "Shirt",
+                                    "parent_id": "53",
+                                    "slug": "shirt",
+                                    "image": "https://eshopweb.store/uploads/media/2021/download.jpg",
+                                    "banner": "https://eshopweb.store/",
+                                    "row_order": "0",
+                                    "status": "1",
+                                    "clicks": "1311",
+                                    "children": [],
+                                    "text": "Shirt",
+                                    "state": {
+                                        "opened": true
+                                    },
+                                    "level": 3
+                                }
+                            ],
+                            "text": "Cloth",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "54",
+                            "name": "Footwears",
+                            "parent_id": "52",
+                            "slug": "footwears",
+                            "image": "https://eshopweb.store/uploads/media/2020/Footwear.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_footwear.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "8876",
+                            "children": [],
+                            "text": "Footwears",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "55",
+                            "name": "Accesories",
+                            "parent_id": "52",
+                            "slug": "accesories",
+                            "image": "https://eshopweb.store/uploads/media/2020/ACCESORIES2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_accessories.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "3767",
+                            "children": [],
+                            "text": "Accesories",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "85",
+                            "name": "Watche",
+                            "parent_id": "52",
+                            "slug": "watche-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/Watches.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "973",
+                            "children": [],
+                            "text": "Watche",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Mens Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "56",
+                    "name": "Women's Fashion",
+                    "parent_id": "14",
+                    "slug": "womens-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/WOMAN2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMENS_FASHION.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [
+                        {
+                            "id": "57",
+                            "name": "Clothings",
+                            "parent_id": "56",
+                            "slug": "clothings-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/MEN_CLOTHING4.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_CLOTHINGS.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "1603",
+                            "children": [],
+                            "text": "Clothings",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "58",
+                            "name": "Beauty",
+                            "parent_id": "56",
+                            "slug": "beauty-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/BEAUTY2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BEAUTY.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "10032",
+                            "children": [],
+                            "text": "Beauty",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "59",
+                            "name": "Footwear's",
+                            "parent_id": "56",
+                            "slug": "footwears-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/BABY_FOOTWEAR2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WoMEN_footwear.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "2598",
+                            "children": [],
+                            "text": "Footwear's",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "60",
+                            "name": "Accesoriess",
+                            "parent_id": "56",
+                            "slug": "accesoriess-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/WOMEN_ACCESORIES2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_accessories.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "2554",
+                            "children": [],
+                            "text": "Accesoriess",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "64",
+                            "name": "Ethnic Wear",
+                            "parent_id": "56",
+                            "slug": "ethnic-wear",
+                            "image": "https://eshopweb.store/uploads/media/2020/fashion2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2111.png",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "0",
+                            "children": [],
+                            "text": "Ethnic Wear",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "65",
+                            "name": "JEWELLERY",
+                            "parent_id": "56",
+                            "slug": "jewellery",
+                            "image": "https://eshopweb.store/uploads/media/2020/fashion4.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2112.png",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "0",
+                            "children": [],
+                            "text": "JEWELLERY",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Women's Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "63",
+                    "name": "Kid's Fashion",
+                    "parent_id": "14",
+                    "slug": "kids-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/baby2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/211.png",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Kid's Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "66",
+                    "name": "Cosmetic",
+                    "parent_id": "14",
+                    "slug": "cosmetic",
+                    "image": "https://eshopweb.store/uploads/media/2020/Group_51461.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/NoPath_-_Copy_(10).png",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Cosmetic",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Fashion",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0,
+            "total": 110
+        },
+        {
+            "id": "123",
+            "name": "Công nghệ ",
+            "parent_id": "0",
+            "slug": "digital",
+            "image": "https://eshopweb.store/uploads/media/2020/thumb-sm/GAMEZONE1.png",
+            "banner": "https://eshopweb.store/",
+            "row_order": "0",
+            "status": "1",
+            "clicks": "1791",
+            "children": [],
+            "text": "Digital",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "35",
+            "name": "Gia đình",
+            "parent_id": "0",
+            "slug": "baby-care-1",
+            "image": "https://eshopweb.store/uploads/media/2022/baby.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BABY_AND_KIDS.jpg",
+            "row_order": "2",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "43",
+                    "name": "Clothigs",
+                    "parent_id": "35",
+                    "slug": "clothigs",
+                    "image": "https://eshopweb.store/uploads/media/2020/smartphones_ICON.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/CLOTHING.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "553",
+                    "children": [],
+                    "text": "Clothigs",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "44",
+                    "name": "Footwear",
+                    "parent_id": "35",
+                    "slug": "footwear-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/BABY_FOOTWEAR2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BABY_FOOTWEAR.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5577",
+                    "children": [],
+                    "text": "Footwear",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "45",
+                    "name": "Toys",
+                    "parent_id": "35",
+                    "slug": "toys-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/TOYS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TOYS.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5802",
+                    "children": [],
+                    "text": "Toys",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Baby Care",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "12",
+            "name": "Rau củ",
+            "parent_id": "0",
+            "slug": "vegetable",
+            "image": "https://eshopweb.store/uploads/media/2022/Vegetables.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FRUIT_AND_VEGETABLES_BANNER.jpg",
+            "row_order": "3",
+            "status": "1",
+            "clicks": "110",
+            "children": [
+                {
+                    "id": "46",
+                    "name": "Fruits",
+                    "parent_id": "12",
+                    "slug": "fruits",
+                    "image": "https://eshopweb.store/uploads/media/2020/FRUITS_AND_VEGETABLES4.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FRUITSs.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5891",
+                    "children": [],
+                    "text": "Fruits",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "47",
+                    "name": "Vegetables",
+                    "parent_id": "12",
+                    "slug": "vegetables-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/VEGETABLESS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/VEGETABLE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4192",
+                    "children": [],
+                    "text": "Vegetables",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Vegetable",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "13",
+            "name": "Gia dụng",
+            "parent_id": "0",
+            "slug": "electronics",
+            "image": "https://eshopweb.store/uploads/media/2022/Electronic1.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/ELECTRONICS_BANNER.jpg",
+            "row_order": "4",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "36",
+                    "name": "Air conditioners",
+                    "parent_id": "13",
+                    "slug": "air-conditioners",
+                    "image": "https://eshopweb.store/uploads/media/2020/AIR_CONDITIONER3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/AIR_CONDITIONER.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2911",
+                    "children": [],
+                    "text": "Air conditioners",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "41",
+                    "name": "Televison",
+                    "parent_id": "13",
+                    "slug": "televison",
+                    "image": "https://eshopweb.store/uploads/media/2020/TELEVISON2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TELEVISION.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "789",
+                    "children": [],
+                    "text": "Televison",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "42",
+                    "name": "Refrigirator",
+                    "parent_id": "13",
+                    "slug": "refrigirator",
+                    "image": "https://eshopweb.store/uploads/media/2020/ELECTRONICS_ICON5.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/REFRIGIRATOR.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4665",
+                    "children": [],
+                    "text": "Refrigirator",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "49",
+                    "name": "Computer & Laptops",
+                    "parent_id": "13",
+                    "slug": "computer-laptops-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/COMPUTER_LAPTOPS3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/COMPUTER_AND_LAPTOPSs1.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "11568",
+                    "children": [],
+                    "text": "Computer & Laptops",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "50",
+                    "name": "Watches",
+                    "parent_id": "13",
+                    "slug": "watches-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/WATCHES2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/watches.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "115",
+                    "children": [],
+                    "text": "Watches",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "51",
+                    "name": "Gamezone",
+                    "parent_id": "13",
+                    "slug": "gamezone-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/GAMEZONE2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/GAMEZONEE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Gamezone",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "61",
+                    "name": "Smartphone",
+                    "parent_id": "13",
+                    "slug": "smartphone",
+                    "image": "https://eshopweb.store/uploads/media/2020/SMARTPHONES22.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/smartphones.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "32888",
+                    "children": [],
+                    "text": "Smartphone",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "121",
+                    "name": "Accesories",
+                    "parent_id": "13",
+                    "slug": "accesories-1",
+                    "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Computers.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [
+                        {
+                            "id": "101",
+                            "name": "EARPHONE",
+                            "parent_id": "121",
+                            "slug": "earphone",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/earphone_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "20",
+                            "status": "1",
+                            "clicks": "1242",
+                            "children": [],
+                            "text": "EARPHONE",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "102",
+                            "name": "CHARGER",
+                            "parent_id": "121",
+                            "slug": "charger-1",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Charger_Icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "12",
+                            "status": "1",
+                            "clicks": "1560",
+                            "children": [],
+                            "text": "CHARGER",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "103",
+                            "name": "MOBILE COVER",
+                            "parent_id": "121",
+                            "slug": "mobile-cover",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/MObile_cover_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "21",
+                            "status": "1",
+                            "clicks": "923",
+                            "children": [],
+                            "text": "MOBILE COVER",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "104",
+                            "name": "Mobile Stands",
+                            "parent_id": "121",
+                            "slug": "mobile-stands",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Standsicon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "22",
+                            "status": "1",
+                            "clicks": "1498",
+                            "children": [],
+                            "text": "Mobile Stands",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "105",
+                            "name": "SCREEN GUARD",
+                            "parent_id": "121",
+                            "slug": "screen-guard-1",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/screenguard_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "13",
+                            "status": "1",
+                            "clicks": "259",
+                            "children": [],
+                            "text": "SCREEN GUARD",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Accesories",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Electronics",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "11",
+            "name": "Tạp hóa",
+            "parent_id": "0",
+            "slug": "groceries-1",
+            "image": "https://eshopweb.store/uploads/media/2022/Grocery.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/GROCERIESss.jpg",
+            "row_order": "5",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "37",
+                    "name": "Tea & Coffee",
+                    "parent_id": "11",
+                    "slug": "tea-coffee-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/TEACOFFEE4.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TEA_COFFEE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2581",
+                    "children": [],
+                    "text": "Tea & Coffee",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "38",
+                    "name": "Spices",
+                    "parent_id": "11",
+                    "slug": "spices-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/SPICES2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/SPICES.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5355",
+                    "children": [],
+                    "text": "Spices",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "39",
+                    "name": "Dal,Pulses & Flour",
+                    "parent_id": "11",
+                    "slug": "dalpulses-flour-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/DAL_PLUSES_FLOOR1.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/DAL_PULSES_FLOOR1.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "3525",
+                    "children": [],
+                    "text": "Dal,Pulses & Flour",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "40",
+                    "name": "Snacks &Ketchup",
+                    "parent_id": "11",
+                    "slug": "snacks-ketchup",
+                    "image": "https://eshopweb.store/uploads/media/2020/SNACKS_KETCHUPS3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/SNACKS_KETCHUP.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4894",
+                    "children": [],
+                    "text": "Snacks &Ketchup",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "48",
+                    "name": "Dry Fruits",
+                    "parent_id": "11",
+                    "slug": "dry-fruits",
+                    "image": "https://eshopweb.store/uploads/media/2020/DRY_FRUITS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/DRY_FRUITS.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2251",
+                    "children": [],
+                    "text": "Dry Fruits",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Groceries",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "20",
+            "name": "Nội thất",
+            "parent_id": "0",
+            "slug": "home",
+            "image": "https://eshopweb.store/uploads/media/2022/Household.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/HOME_APPLIANCES1.jpg",
+            "row_order": "6",
+            "status": "1",
+            "clicks": "160",
+            "children": [
+                {
+                    "id": "67",
+                    "name": "Chair",
+                    "parent_id": "20",
+                    "slug": "chair-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/chair.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "29",
+                    "status": "1",
+                    "clicks": "1011",
+                    "children": [],
+                    "text": "Chair",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "69",
+                    "name": "Decor",
+                    "parent_id": "20",
+                    "slug": "decor-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/deco.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "32",
+                    "status": "1",
+                    "clicks": "2253",
+                    "children": [],
+                    "text": "Decor",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "70",
+                    "name": "Sofas",
+                    "parent_id": "20",
+                    "slug": "sofas-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/sofa.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "30",
+                    "status": "1",
+                    "clicks": "1487",
+                    "children": [],
+                    "text": "Sofas",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Home",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        }
+    ],
+    "popular_categories": [
+        {
+            "id": "123",
+            "name": "Digital",
+            "parent_id": "0",
+            "slug": "digital",
+            "image": "https://eshopweb.store/uploads/media/2020/thumb-sm/GAMEZONE1.png",
+            "banner": "https://eshopweb.store/",
+            "row_order": "0",
+            "status": "1",
+            "clicks": "1791",
+            "children": [],
+            "text": "Digital",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0,
+            "total": 110
+        },
+        {
+            "id": "14",
+            "name": "Fashion",
+            "parent_id": "0",
+            "slug": "fashion",
+            "image": "https://eshopweb.store/uploads/media/2022/fashion1.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FASHION_BANNER.jpg",
+            "row_order": "0",
+            "status": "1",
+            "clicks": "469",
+            "children": [
+                {
+                    "id": "52",
+                    "name": "Mens Fashion",
+                    "parent_id": "14",
+                    "slug": "mens-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/MEN2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/1877_copy.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "428",
+                    "children": [
+                        {
+                            "id": "53",
+                            "name": "Cloth",
+                            "parent_id": "52",
+                            "slug": "cloth-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/Clothing.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_CLOTHINGS.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "3360",
+                            "children": [
+                                {
+                                    "id": "62",
+                                    "name": "T-Shirt",
+                                    "parent_id": "53",
+                                    "slug": "t-shirt-1",
+                                    "image": "https://eshopweb.store/uploads/media/2020/mantshirts.jpeg",
+                                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/banner.jpg",
+                                    "row_order": "0",
+                                    "status": "1",
+                                    "clicks": "4324",
+                                    "children": [],
+                                    "text": "T-Shirt",
+                                    "state": {
+                                        "opened": true
+                                    },
+                                    "level": 3
+                                },
+                                {
+                                    "id": "122",
+                                    "name": "Shirt",
+                                    "parent_id": "53",
+                                    "slug": "shirt",
+                                    "image": "https://eshopweb.store/uploads/media/2021/download.jpg",
+                                    "banner": "https://eshopweb.store/",
+                                    "row_order": "0",
+                                    "status": "1",
+                                    "clicks": "1311",
+                                    "children": [],
+                                    "text": "Shirt",
+                                    "state": {
+                                        "opened": true
+                                    },
+                                    "level": 3
+                                }
+                            ],
+                            "text": "Cloth",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "54",
+                            "name": "Footwears",
+                            "parent_id": "52",
+                            "slug": "footwears",
+                            "image": "https://eshopweb.store/uploads/media/2020/Footwear.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_footwear.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "8876",
+                            "children": [],
+                            "text": "Footwears",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "55",
+                            "name": "Accesories",
+                            "parent_id": "52",
+                            "slug": "accesories",
+                            "image": "https://eshopweb.store/uploads/media/2020/ACCESORIES2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/MEN_accessories.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "3767",
+                            "children": [],
+                            "text": "Accesories",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "85",
+                            "name": "Watche",
+                            "parent_id": "52",
+                            "slug": "watche-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/Watches.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "973",
+                            "children": [],
+                            "text": "Watche",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Mens Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "56",
+                    "name": "Women's Fashion",
+                    "parent_id": "14",
+                    "slug": "womens-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/WOMAN2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMENS_FASHION.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [
+                        {
+                            "id": "57",
+                            "name": "Clothings",
+                            "parent_id": "56",
+                            "slug": "clothings-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/MEN_CLOTHING4.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_CLOTHINGS.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "1603",
+                            "children": [],
+                            "text": "Clothings",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "58",
+                            "name": "Beauty",
+                            "parent_id": "56",
+                            "slug": "beauty-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/BEAUTY2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BEAUTY.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "10032",
+                            "children": [],
+                            "text": "Beauty",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "59",
+                            "name": "Footwear's",
+                            "parent_id": "56",
+                            "slug": "footwears-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/BABY_FOOTWEAR2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WoMEN_footwear.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "2598",
+                            "children": [],
+                            "text": "Footwear's",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "60",
+                            "name": "Accesoriess",
+                            "parent_id": "56",
+                            "slug": "accesoriess-1",
+                            "image": "https://eshopweb.store/uploads/media/2020/WOMEN_ACCESORIES2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/WOMEN_accessories.jpg",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "2554",
+                            "children": [],
+                            "text": "Accesoriess",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "64",
+                            "name": "Ethnic Wear",
+                            "parent_id": "56",
+                            "slug": "ethnic-wear",
+                            "image": "https://eshopweb.store/uploads/media/2020/fashion2.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2111.png",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "0",
+                            "children": [],
+                            "text": "Ethnic Wear",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "65",
+                            "name": "JEWELLERY",
+                            "parent_id": "56",
+                            "slug": "jewellery",
+                            "image": "https://eshopweb.store/uploads/media/2020/fashion4.png",
+                            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/2112.png",
+                            "row_order": "0",
+                            "status": "1",
+                            "clicks": "0",
+                            "children": [],
+                            "text": "JEWELLERY",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Women's Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "63",
+                    "name": "Kid's Fashion",
+                    "parent_id": "14",
+                    "slug": "kids-fashion",
+                    "image": "https://eshopweb.store/uploads/media/2020/baby2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/211.png",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Kid's Fashion",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "66",
+                    "name": "Cosmetic",
+                    "parent_id": "14",
+                    "slug": "cosmetic",
+                    "image": "https://eshopweb.store/uploads/media/2020/Group_51461.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/NoPath_-_Copy_(10).png",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Cosmetic",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Fashion",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "20",
+            "name": "Home",
+            "parent_id": "0",
+            "slug": "home",
+            "image": "https://eshopweb.store/uploads/media/2022/Household.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/HOME_APPLIANCES1.jpg",
+            "row_order": "6",
+            "status": "1",
+            "clicks": "160",
+            "children": [
+                {
+                    "id": "67",
+                    "name": "Chair",
+                    "parent_id": "20",
+                    "slug": "chair-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/chair.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "29",
+                    "status": "1",
+                    "clicks": "1011",
+                    "children": [],
+                    "text": "Chair",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "69",
+                    "name": "Decor",
+                    "parent_id": "20",
+                    "slug": "decor-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/deco.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "32",
+                    "status": "1",
+                    "clicks": "2253",
+                    "children": [],
+                    "text": "Decor",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "70",
+                    "name": "Sofas",
+                    "parent_id": "20",
+                    "slug": "sofas-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/sofa.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "30",
+                    "status": "1",
+                    "clicks": "1487",
+                    "children": [],
+                    "text": "Sofas",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Home",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "12",
+            "name": "Vegetable",
+            "parent_id": "0",
+            "slug": "vegetable",
+            "image": "https://eshopweb.store/uploads/media/2022/Vegetables.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FRUIT_AND_VEGETABLES_BANNER.jpg",
+            "row_order": "3",
+            "status": "1",
+            "clicks": "110",
+            "children": [
+                {
+                    "id": "46",
+                    "name": "Fruits",
+                    "parent_id": "12",
+                    "slug": "fruits",
+                    "image": "https://eshopweb.store/uploads/media/2020/FRUITS_AND_VEGETABLES4.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/FRUITSs.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5891",
+                    "children": [],
+                    "text": "Fruits",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "47",
+                    "name": "Vegetables",
+                    "parent_id": "12",
+                    "slug": "vegetables-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/VEGETABLESS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/VEGETABLE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4192",
+                    "children": [],
+                    "text": "Vegetables",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Vegetable",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "11",
+            "name": "Groceries",
+            "parent_id": "0",
+            "slug": "groceries-1",
+            "image": "https://eshopweb.store/uploads/media/2022/Grocery.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/GROCERIESss.jpg",
+            "row_order": "5",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "37",
+                    "name": "Tea & Coffee",
+                    "parent_id": "11",
+                    "slug": "tea-coffee-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/TEACOFFEE4.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TEA_COFFEE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2581",
+                    "children": [],
+                    "text": "Tea & Coffee",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "38",
+                    "name": "Spices",
+                    "parent_id": "11",
+                    "slug": "spices-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/SPICES2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/SPICES.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5355",
+                    "children": [],
+                    "text": "Spices",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "39",
+                    "name": "Dal,Pulses & Flour",
+                    "parent_id": "11",
+                    "slug": "dalpulses-flour-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/DAL_PLUSES_FLOOR1.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/DAL_PULSES_FLOOR1.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "3525",
+                    "children": [],
+                    "text": "Dal,Pulses & Flour",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "40",
+                    "name": "Snacks &Ketchup",
+                    "parent_id": "11",
+                    "slug": "snacks-ketchup",
+                    "image": "https://eshopweb.store/uploads/media/2020/SNACKS_KETCHUPS3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/SNACKS_KETCHUP.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4894",
+                    "children": [],
+                    "text": "Snacks &Ketchup",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "48",
+                    "name": "Dry Fruits",
+                    "parent_id": "11",
+                    "slug": "dry-fruits",
+                    "image": "https://eshopweb.store/uploads/media/2020/DRY_FRUITS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/DRY_FRUITS.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2251",
+                    "children": [],
+                    "text": "Dry Fruits",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Groceries",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "13",
+            "name": "Electronics",
+            "parent_id": "0",
+            "slug": "electronics",
+            "image": "https://eshopweb.store/uploads/media/2022/Electronic1.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/ELECTRONICS_BANNER.jpg",
+            "row_order": "4",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "36",
+                    "name": "Air conditioners",
+                    "parent_id": "13",
+                    "slug": "air-conditioners",
+                    "image": "https://eshopweb.store/uploads/media/2020/AIR_CONDITIONER3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/AIR_CONDITIONER.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "2911",
+                    "children": [],
+                    "text": "Air conditioners",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "41",
+                    "name": "Televison",
+                    "parent_id": "13",
+                    "slug": "televison",
+                    "image": "https://eshopweb.store/uploads/media/2020/TELEVISON2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TELEVISION.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "789",
+                    "children": [],
+                    "text": "Televison",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "42",
+                    "name": "Refrigirator",
+                    "parent_id": "13",
+                    "slug": "refrigirator",
+                    "image": "https://eshopweb.store/uploads/media/2020/ELECTRONICS_ICON5.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/REFRIGIRATOR.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "4665",
+                    "children": [],
+                    "text": "Refrigirator",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "49",
+                    "name": "Computer & Laptops",
+                    "parent_id": "13",
+                    "slug": "computer-laptops-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/COMPUTER_LAPTOPS3.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/COMPUTER_AND_LAPTOPSs1.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "11568",
+                    "children": [],
+                    "text": "Computer & Laptops",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "50",
+                    "name": "Watches",
+                    "parent_id": "13",
+                    "slug": "watches-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/WATCHES2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/watches.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "115",
+                    "children": [],
+                    "text": "Watches",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "51",
+                    "name": "Gamezone",
+                    "parent_id": "13",
+                    "slug": "gamezone-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/GAMEZONE2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/GAMEZONEE.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [],
+                    "text": "Gamezone",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "61",
+                    "name": "Smartphone",
+                    "parent_id": "13",
+                    "slug": "smartphone",
+                    "image": "https://eshopweb.store/uploads/media/2020/SMARTPHONES22.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/smartphones.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "32888",
+                    "children": [],
+                    "text": "Smartphone",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "121",
+                    "name": "Accesories",
+                    "parent_id": "13",
+                    "slug": "accesories-1",
+                    "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Computers.png",
+                    "banner": "https://eshopweb.store/",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "0",
+                    "children": [
+                        {
+                            "id": "101",
+                            "name": "EARPHONE",
+                            "parent_id": "121",
+                            "slug": "earphone",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/earphone_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "20",
+                            "status": "1",
+                            "clicks": "1242",
+                            "children": [],
+                            "text": "EARPHONE",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "102",
+                            "name": "CHARGER",
+                            "parent_id": "121",
+                            "slug": "charger-1",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Charger_Icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "12",
+                            "status": "1",
+                            "clicks": "1560",
+                            "children": [],
+                            "text": "CHARGER",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "103",
+                            "name": "MOBILE COVER",
+                            "parent_id": "121",
+                            "slug": "mobile-cover",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/MObile_cover_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "21",
+                            "status": "1",
+                            "clicks": "923",
+                            "children": [],
+                            "text": "MOBILE COVER",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "104",
+                            "name": "Mobile Stands",
+                            "parent_id": "121",
+                            "slug": "mobile-stands",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/Standsicon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "22",
+                            "status": "1",
+                            "clicks": "1498",
+                            "children": [],
+                            "text": "Mobile Stands",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        },
+                        {
+                            "id": "105",
+                            "name": "SCREEN GUARD",
+                            "parent_id": "121",
+                            "slug": "screen-guard-1",
+                            "image": "https://eshopweb.store/uploads/media/2021/thumb-md/screenguard_icon.png",
+                            "banner": "https://eshopweb.store/",
+                            "row_order": "13",
+                            "status": "1",
+                            "clicks": "259",
+                            "children": [],
+                            "text": "SCREEN GUARD",
+                            "state": {
+                                "opened": true
+                            },
+                            "level": 2
+                        }
+                    ],
+                    "text": "Accesories",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Electronics",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        },
+        {
+            "id": "35",
+            "name": "Baby Care",
+            "parent_id": "0",
+            "slug": "baby-care-1",
+            "image": "https://eshopweb.store/uploads/media/2022/baby.png",
+            "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BABY_AND_KIDS.jpg",
+            "row_order": "2",
+            "status": "1",
+            "clicks": "0",
+            "children": [
+                {
+                    "id": "43",
+                    "name": "Clothigs",
+                    "parent_id": "35",
+                    "slug": "clothigs",
+                    "image": "https://eshopweb.store/uploads/media/2020/smartphones_ICON.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/CLOTHING.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "553",
+                    "children": [],
+                    "text": "Clothigs",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "44",
+                    "name": "Footwear",
+                    "parent_id": "35",
+                    "slug": "footwear-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/BABY_FOOTWEAR2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/BABY_FOOTWEAR.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5577",
+                    "children": [],
+                    "text": "Footwear",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                },
+                {
+                    "id": "45",
+                    "name": "Toys",
+                    "parent_id": "35",
+                    "slug": "toys-1",
+                    "image": "https://eshopweb.store/uploads/media/2020/TOYS2.png",
+                    "banner": "https://eshopweb.store/uploads/media/2020/thumb-md/TOYS.jpg",
+                    "row_order": "0",
+                    "status": "1",
+                    "clicks": "5802",
+                    "children": [],
+                    "text": "Toys",
+                    "state": {
+                        "opened": true
+                    },
+                    "level": 1
+                }
+            ],
+            "text": "Baby Care",
+            "state": {
+                "opened": true
+            },
+            "icon": "jstree-folder",
+            "level": 0
+        }
+    ]
+}
