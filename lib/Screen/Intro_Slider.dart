@@ -1,5 +1,7 @@
 import 'package:eshop/Helper/Session.dart';
 import 'package:eshop/Helper/String.dart';
+import 'package:eshop/Screen/Dashboard.dart';
+import 'package:eshop/Screen/HomePage.dart';
 import 'package:eshop/Screen/SignInUpAcc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -154,7 +156,7 @@ class _GettingStartedScreenState extends State<IntroSlider>
                   setPrefrenceBool(ISFIRSTTIME, true);
                   Navigator.pushReplacement(
                     context,
-                    CupertinoPageRoute(builder: (context) => const SignInUpAcc()),
+                    CupertinoPageRoute(builder: (context) => const Dashboard()),
                   );
                 } else {
                   _currentPage = _currentPage + 1;

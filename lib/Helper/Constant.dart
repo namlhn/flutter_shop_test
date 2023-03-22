@@ -15,7 +15,7 @@ const int perPage = 10;
 
 //Token ExpireTime in minutes & issuer name
 const int tokenExpireTime = 5;
-const String issuerName = 'eshop';
+const String issuerName = 'EShopTest';
 
 const String baseUrl = 'https://eshopweb.store/app/v1/api/';
 const String jwtKey = "02bb05926be71662de2373966c468accb04b6b90";

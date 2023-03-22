@@ -167,14 +167,8 @@ class _MyAppState extends State<MyApp> {
             locale: _locale,
             //scaffoldMessengerKey: scaffoldMessageKey,
             supportedLocales: const [
+              Locale("vi", "VN"),
               Locale("en", "US"),
-              Locale("zh", "CN"),
-              Locale("es", "ES"),
-              Locale("hi", "IN"),
-              Locale("ar", "DZ"),
-              Locale("ru", "RU"),
-              Locale("ja", "JP"),
-              Locale("de", "DE")
             ],
             localizationsDelegates: const [
               CountryLocalizations.delegate,
@@ -184,13 +178,14 @@ class _MyAppState extends State<MyApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             localeResolutionCallback: (locale, supportedLocales) {
+             /*
               for (var supportedLocale in supportedLocales) {
                 if (supportedLocale.languageCode == locale!.languageCode &&
                     supportedLocale.countryCode == locale.countryCode) {
                   return supportedLocale;
                 }
-              }
-              return supportedLocales.first;
+              }*/
+              return  const Locale("vi", "VN");
             },
             title: appName,
             theme: lightTheme,

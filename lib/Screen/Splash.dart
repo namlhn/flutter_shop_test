@@ -63,27 +63,15 @@ class _SplashScreen extends State<Splash> {
   }
 
   Future<void> navigationPage() async {
-    SettingProvider settingsProvider =
-        Provider.of<SettingProvider>(context, listen: false);
 
-   // bool isFirstTime = await settingsProvider.getPrefrenceBool(ISFIRSTTIME);
-    bool isFirstTime = false;
-    if (isFirstTime) {
-      setState(() {
-        from = true;
-      });
-
-      Navigator.pushReplacementNamed(context, "/home");
-    } else {
-      setState(() {
-        from = false;
-      });
-      Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(
-            builder: (context) => const IntroSlider(),
-          ));
-    }
+    setState(() {
+      from = false;
+    });
+    Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+          builder: (context) => const IntroSlider(),
+        ));
   }
 
   @override

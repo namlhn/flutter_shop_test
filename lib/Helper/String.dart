@@ -370,8 +370,8 @@ String ISDARK = "";
 const String PAYPAL_RESPONSE_URL = "$baseUrl" "app_payment_status";
 const String FLUTTERWAVE_RES_URL = "${baseUrl}flutterwave-payment-response";
 
-String? CUR_CURRENCY = '';
-String? SUPPORTED_LOCALES;
+String? CUR_CURRENCY = ' VND ';
+String? SUPPORTED_LOCALES = 'vi';
 
 String? CUR_USERID;
 
