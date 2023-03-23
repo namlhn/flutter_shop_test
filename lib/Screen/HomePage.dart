@@ -16,7 +16,6 @@ import 'package:eshop/Provider/CartProvider.dart';
 import 'package:eshop/Provider/CategoryProvider.dart';
 import 'package:eshop/Provider/FavoriteProvider.dart';
 import 'package:eshop/Provider/HomeProvider.dart';
-import 'package:eshop/Provider/SettingProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
 import 'package:eshop/Screen/Search.dart';
 import 'package:eshop/Screen/SubCategory.dart';
@@ -27,12 +26,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:version/version.dart';
 
 import '../Provider/ProductProvider.dart';
 import '../ui/styles/DesignConfig.dart';
@@ -89,7 +86,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
 
     callApi();
-    /*
+
     buttonController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
 
@@ -103,15 +100,15 @@ class _HomePageState extends State<HomePage>
         0.150,
       ),
     ));
-*/
-  //  WidgetsBinding.instance.addPostFrameCallback((_) => _animateSlider());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => _animateSlider());
   }
 
   @override
   void dispose() {
-   // _scrollBottomBarController.removeListener(() {});
-    //_controller.dispose();
-  //  buttonController.dispose();
+    _scrollBottomBarController.removeListener(() {});
+    _controller.dispose();
+    buttonController.dispose();
     super.dispose();
   }
 
@@ -1882,7 +1879,7 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
                 isDense: true,
-                hintText: 'Tìm kiếm sản phẩm bạn quan tâm ',
+                hintText: 'Bạn tìm gì hôm nay ?',
                 hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).colorScheme.fontColor,
                     ),

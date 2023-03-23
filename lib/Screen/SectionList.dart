@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:eshop/Helper/Session.dart';
 import 'package:eshop/ui/widgets/Slideanimation.dart';
@@ -8,6 +9,7 @@ import 'package:eshop/Provider/FavoriteProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -2225,6 +2227,38 @@ class StateSection extends State<SectionList> with TickerProviderStateMixin {
   }
 
   Future<void> getSection(String top) async {
+    final String response =
+        await rootBundle.loadString('assets/data/sections744.json');
+    final getdata = await json.decode(response);
+    var data = getdata["data"];
+
+    minPrice = getdata[MINPRICE];
+    maxPrice = getdata[MAXPRICE];
+    _currentRangeValues =
+        RangeValues(double.parse(minPrice), double.parse(maxPrice));
+
+    offset = widget.section_model!.productList!.length;
+
+    total = int.parse(data[0]["total"]);
+
+    if (offset! < total!) {
+      List<SectionModel> temp =
+          (data as List).map((data) => SectionModel.fromJson(data)).toList();
+
+      getAvailVarient(temp[0].productList!);
+
+      offset = widget.section_model!.offset! + perPage;
+
+      widget.section_model!.offset = offset;
+      widget.section_model!.totalItem = total;
+    }
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+    /*
+
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
       try {
@@ -2305,7 +2339,7 @@ class StateSection extends State<SectionList> with TickerProviderStateMixin {
         });
       }
     }
-
+*/
     return;
   }
 

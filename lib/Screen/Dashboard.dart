@@ -1,16 +1,15 @@
 import 'dart:async';
 
-import 'package:eshop/Screen/FlashSale.dart';
+import 'package:bottom_bar/bottom_bar.dart';
 import 'package:eshop/Helper/Color.dart';
-import 'package:eshop/Helper/PushNotificationService.dart';
 import 'package:eshop/Helper/Session.dart';
 import 'package:eshop/Helper/SqliteData.dart';
 import 'package:eshop/Helper/String.dart';
-import 'package:eshop/Model/Section_Model.dart';
 import 'package:eshop/Provider/HomeProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
 import 'package:eshop/Screen/Cart.dart';
 import 'package:eshop/Screen/Favorite.dart';
+import 'package:eshop/Screen/FlashSale.dart';
 import 'package:eshop/Screen/Login.dart';
 import 'package:eshop/Screen/MyProfile.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
@@ -18,15 +17,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:bottom_bar/bottom_bar.dart';
 
-import '../Provider/SettingProvider.dart';
 import '../ui/styles/DesignConfig.dart';
 import 'All_Category.dart';
-
 import 'HomePage.dart';
 import 'NotificationLIst.dart';
-import 'Product_DetailNew.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -53,7 +48,7 @@ class _HomePageState extends State<Dashboard>
   void initState() {
     super.initState();
    // initDynamicLinks();
-    //db.getTotalCartCount(context);
+    db.getTotalCartCount(context);
     /*
     final pushNotificationService = PushNotificationService(
         context: context, pageController: _pageController);
@@ -143,9 +138,8 @@ class _HomePageState extends State<Dashboard>
       automaticallyImplyLeading: false,
       title: _selBottom == 0
           ? SvgPicture.asset(
-              'assets/images/titleicon.svg',
+              'assets/images/loginlogo.svg',
               height: 35,
-              color: colors.primary,
             )
           : Text(
               title!,

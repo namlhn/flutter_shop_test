@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'dart:math';
 
@@ -11,6 +12,7 @@ import 'package:eshop/Provider/FavoriteProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_recognition_error.dart';
@@ -1042,6 +1044,70 @@ class StateProduct extends State<ProductList> with TickerProviderStateMixin {
   }
 
   Future getProduct(String top) async {
+
+    final String response =
+    await rootBundle.loadString('assets/data/product_cat58.json');
+    final getdata = await json.decode(response);
+    var data = getdata["data"];
+    bool error = getdata["error"];
+    String? msg = getdata["message"];
+
+    if (_isFirstLoad) {
+      filterList = getdata["filters"];
+
+      minPrice = getdata[MINPRICE].toString();
+      maxPrice = getdata[MAXPRICE].toString();
+
+      _isFirstLoad = false;
+    }
+
+    Map<String, dynamic> tempData = getdata;
+
+    String? search = getdata['search'];
+
+    _isLoading = false;
+    if (offset == 0) notificationisnodata = error;
+
+    if (!error) {
+      total = int.parse(getdata["total"]);
+      if (mounted) {
+        Future.delayed(
+            Duration.zero,
+                () => setState(() {
+              if ((offset) < total) {
+                List mainlist = getdata['data'];
+
+                if (mainlist.isNotEmpty) {
+                  List<Product> items = [];
+                  List<Product> allitems = [];
+
+                  items.addAll(mainlist
+                      .map((data) => Product.fromJson(data))
+                      .toList());
+
+                  allitems.addAll(items);
+
+                  getAvailVarient(allitems);
+                }
+              } else {
+                if (msg != "Products Not Found !") {
+                  // notificationisnodata = true;
+                }
+                isLoadingmore = false;
+              }
+            }));
+      }
+    } else {
+      if (msg != "Products Not Found !") {
+        notificationisnodata = true;
+      }
+      isLoadingmore = false;
+      if (mounted) setState(() {});
+    }
+    setState(() {
+      _isLoading = false;
+    });
+    /*
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
       try {
@@ -1182,7 +1248,7 @@ class StateProduct extends State<ProductList> with TickerProviderStateMixin {
           _isNetworkAvail = false;
         });
       }
-    }
+    }*/
   }
 
   void getAvailVarient(List<Product> tempList) {
