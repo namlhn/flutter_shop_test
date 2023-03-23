@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.16"
+  adaptive_number:
+    dependency: transitive
+    description:
+      name: adaptive_number
+      sha256: "3a567544e9b5c9c803006f51140ad544aedc79604fd4f3f2c1380003f97c1d77"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   archive:
     dependency: transitive
     description:
@@ -41,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  base_x:
+    dependency: transitive
+    description:
+      name: base_x
+      sha256: "3f1043679659f1759c651f900da6f24f0a8062c28daa6f9625e8d580002e187b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -57,6 +73,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  bs58:
+    dependency: transitive
+    description:
+      name: bs58
+      sha256: "3ed24dadf386ca749ff50af678be1131ef569a3583a6f37b87b90c032270c767"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   characters:
     dependency: transitive
     description:
@@ -129,6 +153,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  cryptography:
+    dependency: transitive
+    description:
+      name: cryptography
+      sha256: df156c5109286340817d21fa7b62f9140f17915077127dd70f8bd7a2a0997a35
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0"
   csslib:
     dependency: transitive
     description:
@@ -153,6 +185,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.8"
+  ed25519_edwards:
+    dependency: transitive
+    description:
+      name: ed25519_edwards
+      sha256: "6ce0112d131327ec6d42beede1e5dfd526069b18ad45dcf654f15074ad9276cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1"
+  event:
+    dependency: transitive
+    description:
+      name: event
+      sha256: eb4814de94cbf6a10da9c4f652bc654087d7066e33566b5036822e6c0b24befb
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
   eventify:
     dependency: transitive
     description:
@@ -281,6 +329,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.15"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -638,6 +694,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.8.0"
+  json_rpc_2:
+    dependency: transitive
+    description:
+      name: json_rpc_2
+      sha256: "5e469bffa23899edacb7b22787780068d650b106a21c76db3c49218ab7ca447e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
   lints:
     dependency: transitive
     description:
@@ -1188,6 +1252,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      sha256: "06866290206d196064fd61df4c7aea1ffe9a4e7c4ccaa8fcded42dd41948005d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   universal_platform:
     dependency: transitive
     description:
@@ -1348,6 +1420,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.14"
+  walletconnect_flutter_v2:
+    dependency: "direct main"
+    description:
+      name: walletconnect_flutter_v2
+      sha256: "5c604f661bb52d436c4ec52f236bad6b3bd4559fd8a7bfffde45a7d5735673d6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      sha256: ca49c0bc209c687b887f30527fb6a9d80040b072cc2990f34b9bec3e7663101b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   webview_flutter:
     dependency: "direct main"
     description:
@@ -1388,6 +1476,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.3"
+  x25519:
+    dependency: transitive
+    description:
+      name: x25519
+      sha256: cec3c125f0d934dccba6c4cab48f3fbf866dc78895dcc5a1584d35b0a845005b
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   xdg_directories:
     dependency: transitive
     description:

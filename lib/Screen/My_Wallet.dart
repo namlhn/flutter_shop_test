@@ -867,7 +867,6 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                     } else if (payMethod ==
                         getTranslated(context, 'MY_FATOORAH_LBL')) {
                       print("here");
-                      doMyFatoorah(price: amtC!.text, context: context);
                     }
                   }
                 }
@@ -875,132 +874,6 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
         ],
       );
     }));
-  }
-
-  doMyFatoorah({required String price, required BuildContext context}) async {
-    try {
-      String tranId = '';
-      String orderID =
-          'wallet-refill-user-$CUR_USERID-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(900) + 100}';
-      String amount = price;
-
-      print("url****$myfatoorahSuccessUrl");
-      String successUrl =
-          '${myfatoorahSuccessUrl!}?txn_id=$tranId&order_id=$orderID&amount=$price';
-      print("successUrl***$successUrl");
-      print("test mode***$myfatoorahPaymentMode");
-      String errorUrl =
-          '${myfatoorahErrorUrl!}?txn_id=$tranId&order_id=$orderID&amount=$price';
-      print("errorUrl***$errorUrl");
-      String token = myfatoorahToken!;
-      try {
-        print("in try");
-        Navigator.pop(context);
-        var response = await MyFatoorah.startPayment(
-          context: context,
-          successChild: const SizedBox(
-            width: 200,
-            height: 200,
-            child: Icon(
-              Icons.done,
-              size: 100,
-              color: Colors.green,
-            ),
-          ),
-          request: myfatoorahPaymentMode == 'test'
-              ? MyfatoorahRequest.test(
-                  userDefinedField: orderID,
-                  currencyIso: () {
-                    if (myfatoorahCountry == 'Kuwait') {
-                      return Country.Kuwait;
-                    } else if (myfatoorahCountry == 'UAE') {
-                      return Country.UAE;
-                    } else if (myfatoorahCountry == 'Egypt') {
-                      return Country.Egypt;
-                    } else if (myfatoorahCountry == 'Bahrain') {
-                      return Country.Bahrain;
-                    } else if (myfatoorahCountry == 'Jordan') {
-                      return Country.Jordan;
-                    } else if (myfatoorahCountry == 'Oman') {
-                      return Country.Oman;
-                    } else if (myfatoorahCountry == 'SaudiArabia') {
-                      return Country.SaudiArabia;
-                    } else if (myfatoorahCountry == 'SaudiArabia') {
-                      return Country.Qatar;
-                    }
-                    return Country.SaudiArabia;
-                  }(),
-                  successUrl: successUrl,
-                  errorUrl: errorUrl,
-                  invoiceAmount: double.parse(amount),
-                  language: () {
-                    if (myfatoorahLanguage == 'english') {
-                      return ApiLanguage.English;
-                    }
-                    return ApiLanguage.Arabic;
-                  }(),
-                  token: token,
-                )
-              : MyfatoorahRequest.live(
-                  userDefinedField: orderID,
-                  currencyIso: () {
-                    if (myfatoorahCountry == 'Kuwait') {
-                      return Country.Kuwait;
-                    } else if (myfatoorahCountry == 'UAE') {
-                      return Country.UAE;
-                    } else if (myfatoorahCountry == 'Egypt') {
-                      return Country.Egypt;
-                    } else if (myfatoorahCountry == 'Bahrain') {
-                      return Country.Bahrain;
-                    } else if (myfatoorahCountry == 'Jordan') {
-                      return Country.Jordan;
-                    } else if (myfatoorahCountry == 'Oman') {
-                      return Country.Oman;
-                    } else if (myfatoorahCountry == 'SaudiArabia') {
-                      return Country.SaudiArabia;
-                    } else if (myfatoorahCountry == 'SaudiArabia') {
-                      return Country.Qatar;
-                    }
-                    return Country.SaudiArabia;
-                  }(),
-                  successUrl: successUrl,
-                  errorUrl: errorUrl,
-                  invoiceAmount: double.parse(amount),
-                  language: () {
-                    if (myfatoorahLanguage == 'english') {
-                      return ApiLanguage.English;
-                    }
-                    return ApiLanguage.Arabic;
-                  }(),
-                  token: token,
-                ),
-        );
-        print("response***$response");
-        if (response.status.toString() == 'PaymentStatus.Success') {
-          await getUserWalletBalanceFromTransactionAPI();
-          return {
-            'error': false,
-            'message': 'Transaction Successful',
-            'status': true
-          };
-        }
-        if (response.status.toString() == 'PaymentStatus.Error') {
-          return {'error': true, 'message': e.toString(), 'status': false};
-        }
-        if (response.status.toString() == 'PaymentStatus.None') {
-          return {'error': true, 'message': e.toString(), 'status': false};
-        }
-      } on TimeoutException catch (_) {
-        setSnackbar(getTranslated(context, 'somethingMSg')!, context);
-      }
-      return {
-        'error': false,
-        'message': 'Transaction Successful',
-        'status': true
-      };
-    } catch (e) {
-      return {'error': true, 'message': e.toString(), 'status': false};
-    }
   }
 
   //This method is used to get user wallet amount
@@ -1863,22 +1736,6 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                 payment['myfaoorah_payment_method'] == '1' ? true : false;
             print("my fatoorah****$myfatoorah");
 
-            if (midTrans!) {
-              midTranshMerchandId = payment['midtrans_merchant_id'];
-              midtransPaymentMethod = payment['midtrans_payment_method'];
-              midtransPaymentMode = payment['midtrans_payment_mode'];
-              midtransServerKey = payment['midtrans_server_key'];
-              midtrashClientKey = payment['midtrans_client_key'];
-            }
-
-            if (myfatoorah!) {
-              myfatoorahToken = payment['myfatoorah_token'];
-              myfatoorahPaymentMode = payment['myfatoorah_payment_mode'];
-              myfatoorahSuccessUrl = payment['myfatoorah__successUrl'];
-              myfatoorahErrorUrl = payment['myfatoorah__errorUrl'];
-              myfatoorahLanguage = payment['myfatoorah_language'];
-              myfatoorahCountry = payment['myfatoorah_country'];
-            }
 
             if (razorpay!) razorpayId = payment["razorpay_key_id"];
             if (paystack!) {

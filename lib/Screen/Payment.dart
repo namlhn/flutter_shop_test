@@ -1,23 +1,16 @@
 import 'dart:async';
-import 'dart:io';
 
-import 'package:eshop/Provider/CartProvider.dart';
-import 'package:eshop/Provider/UserProvider.dart';
 import 'package:eshop/Screen/Cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
-import '../ui/styles/DesignConfig.dart';
-import '../ui/widgets/AppBtn.dart';
 import '../Helper/Color.dart';
-import '../ui/widgets/PaymentRadio.dart';
 import '../Helper/Session.dart';
-import '../ui/widgets/SimBtn.dart';
 import '../Helper/String.dart';
-import '../ui/widgets/Stripe_Service.dart';
 import '../Model/Model.dart';
+import '../ui/widgets/PaymentRadio.dart';
+import '../ui/widgets/SimBtn.dart';
 import '../ui/widgets/SimpleAppBar.dart';
 
 class Payment extends StatefulWidget {
@@ -41,27 +34,16 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
   bool _isLoading = true;
   String? startingDate;
 
-  late bool cod,
-      paypal,
-      razorpay,
-      paumoney,
-      paystack,
-      flutterwave,
-      stripe,
-      paytm = true,
-      gpay = false,
-      bankTransfer = true,
-      midTrans,
-      myfatoorah;
   List<RadioModel> timeModel = [];
   List<RadioModel> payModel = [];
   List<RadioModel> timeModelList = [];
   List<String?> paymentMethodList = [];
   List<String> paymentIconList = [
+    'assets/images/gpay.svg',
     'assets/images/cod_payment.svg',
     'assets/images/paypal.svg',
-    'assets/images/stripe.svg',
-    'assets/images/banktransfer.svg'
+    'assets/images/momo.svg',
+    'assets/images/gpay.svg'
   ];
 
   Animation? buttonSqueezeanimation;
@@ -74,14 +56,17 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
     super.initState();
     timeSlotList.length = 0;
     paymentMethodList = [
-      getTranslated(context, 'COD_LBL'),
-      getTranslated(context, 'PAYPAL_LBL'),
-      getTranslated(context, 'STRIPE_LBL'),
-      getTranslated(context, 'BANKTRAN'),
+      'ZakumiFi Coin',
+      'COD',
+      'PAYPAL',
+      'MOMO',
+      'CHUYỂN KHOẢN',
     ];
-    if (widget.msg != '') {
-      WidgetsBinding.instance
-          .addPostFrameCallback((_) => setSnackbar(widget.msg!, context));
+    for (int i = 0; i < paymentMethodList.length; i++) {
+      payModel.add(RadioModel(
+          isSelected: i == selectedMethod ? true : false,
+          name: paymentMethodList[i],
+          img: paymentIconList[i]));
     }
     buttonController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
@@ -266,13 +251,19 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
     return InkWell(
       onTap: () {
         if (mounted) {
+          selectedMethod = index;
+          payMethod = paymentMethodList[selectedMethod!];
+          for (var element in payModel) {
+            element.isSelected = false;
+          }
+          payModel[index].isSelected = true;
+          widget.update();
+          setState(() {
 
+          });
         }
       },
-      child: RadioItem(RadioModel(
-          img: paymentIconList[index],
-          isSelected: false,
-          name: paymentMethodList[index])),
+      child: RadioItem(payModel[index]),
     );
   }
 }

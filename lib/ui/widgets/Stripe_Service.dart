@@ -61,12 +61,10 @@ class StripeService {
       await Stripe.instance.presentPaymentSheet();
 
       //store paymentID of customer
-      stripePayId = paymentIntent['id'];
-
 
       //confirm payment
       var response = await http.post(
-          Uri.parse('${StripeService.paymentApiUrl}/$stripePayId'),
+          Uri.parse('${StripeService.paymentApiUrl}/12'),
           headers: headers);
 
       var getdata = json.decode(response.body);

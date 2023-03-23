@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:collection/src/iterable_extensions.dart';
 import 'package:eshop/Helper/SqliteData.dart';
 import 'package:eshop/Screen/Cart.dart';
@@ -27,7 +26,6 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
 import '../Provider/FlashSaleProvider.dart';
 import '../ui/styles/Validators.dart';
 import '../ui/widgets/AppBtn.dart';
@@ -171,8 +169,8 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
       reviewList.clear();
       offset = 0;
       total = 0;
-      await getReview();
-      await getDeliverable(productData!);
+      //await getReview();
+      // await getDeliverable(productData!);
       notificationoffset = 0;
       await getProduct();
       faqsProductList.clear();
@@ -233,7 +231,7 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    setupChannel();
+    //setupChannel();
 
     getProductDetails();
 
@@ -1871,7 +1869,7 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
   }
 
   _showContent() {
-    if (productData != null && isLoadedAll) {
+    if (productData != null) {
       Product data = productData!;
       return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         Expanded(
@@ -2012,29 +2010,27 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
                               ],
                             ),
                           ),
-                          _getVarient(data),
-                          _specification(data),
-                          _speciExtraBtnDetails(data),
-                          _flashSaleWidget(data),
-                          _deliverPincode(data),
+                         // _getVarient(data),
+                       //   _specification(data),
+                         // _speciExtraBtnDetails(data),
+                         // _flashSaleWidget(data),
+                         // _deliverPincode(data),
                         ],
                       ),
-                      reviewList.isNotEmpty
-                          ? Card(
-                              elevation: 0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  _reviewTitle(data),
-                                  _reviewStar(data),
-                                  _reviewImg(data),
-                                  _review(),
-                                ],
-                              ),
-                            )
-                          : const SizedBox(),
-                      faqsQuesAndAns(data),
+                      Card(
+                        elevation: 0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            _reviewTitle(data),
+                            // _reviewStar(data),
+                            // _reviewImg(data),
+                            _review(),
+                          ],
+                        ),
+                      ),
+                     // faqsQuesAndAns(data),
                       productList.isNotEmpty
                           ? Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -2883,58 +2879,51 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
   }
 
   Widget _review() {
-    return _isLoading
-        ? const Center(child: CircularProgressIndicator())
-        : ListView.separated(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            itemCount: reviewList.length >= 2 ? 2 : reviewList.length,
-            physics: const NeverScrollableScrollPhysics(),
-            separatorBuilder: (BuildContext context, int index) =>
-                const Divider(),
-            itemBuilder: (context, index) {
-              return Column(
+    return ListView.separated(
+        shrinkWrap: true,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        itemCount: 2,
+        physics: const NeverScrollableScrollPhysics(),
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        itemBuilder: (context, index) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        reviewList[index].username!,
-                        style: const TextStyle(fontWeight: FontWeight.w400),
-                      ),
-                      const Spacer(),
-                      Text(
-                        reviewList[index].date!,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.lightBlack,
-                            fontSize: 11),
-                      )
-                    ],
+                  Text(
+                    'Hoài Nam',
+                    style: const TextStyle(fontWeight: FontWeight.w400),
                   ),
-                  RatingBarIndicator(
-                    rating: double.parse(reviewList[index].rating!),
-                    itemBuilder: (context, index) => const Icon(
-                      Icons.star,
-                      color: colors.primary,
-                    ),
-                    itemCount: 5,
-                    itemSize: 12.0,
-                    direction: Axis.horizontal,
-                  ),
-                  reviewList[index].comment != "" &&
-                          reviewList[index].comment!.isNotEmpty
-                      ? Text(
-                          reviewList[index].comment ?? '',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      : const SizedBox(),
-                  reviewImage(index),
+                  const Spacer(),
+                  Text(
+                    '12/05/2023',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.lightBlack,
+                        fontSize: 11),
+                  )
                 ],
-              );
-            });
+              ),
+              RatingBarIndicator(
+                rating: 5,
+                itemBuilder: (context, index) => const Icon(
+                  Icons.star,
+                  color: colors.primary,
+                ),
+                itemCount: 5,
+                itemSize: 12.0,
+                direction: Axis.horizontal,
+              ),
+              Text(
+                'Sản phẩm chất lượng ',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          );
+        });
   }
 
   Future<void> getProductFaqs() async {
@@ -3184,23 +3173,36 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
   }
 
   Future<void> getProductDetails() async {
-    var getdata = await readJsonAssets('assets/data/product744.json');
+    var getdata = await readJsonAssets('assets/data/productsample.json');
     List mainlist = getdata['data'];
 
-    if (mainlist.isNotEmpty) {
-      List<Product> items = [];
+    List<Product> items = [];
 
-      items.addAll(
-          mainlist.map((data) => Product.fromJson(data)).toList());
-      productData = items[0];
+    items.addAll(mainlist.map((data) => Product.fromJson(data)).toList());
 
-      /*context
-                  .read<ProductDetailProvider>()
-                  .setDiffTime(isSaleOn: items[0].isSalesOn!,);*/
-
-      await allApiAndFun();
-      setState(() {});
+    for (Product p in items) {
+      if (p.id == widget.id) {
+        productData = p;
+        break;
+      }
     }
+
+    productData ??= items[0];
+
+    _oldSelVarient = productData!.selVarient!;
+    sliderList.clear();
+    sliderList.insert(0, productData!.image);
+
+    addImage().then((value) {
+      if (productData!.videType != "" &&
+          productData!.video!.isNotEmpty &&
+          productData!.video != "") {
+        sliderList.insert(1, "youtube");
+      }
+    });
+
+    setState(() {});
+
     /*
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
@@ -3257,7 +3259,6 @@ class StateItem extends State<ProductDetail> with TickerProviderStateMixin {
         });
       }
     }*/
-
   }
 
   Future<void> getProduct1() async {
