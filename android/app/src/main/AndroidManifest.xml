@@ -42,7 +42,8 @@
         android:label="EPM Shop"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:allowBackup="false"
+
+        tools:replace="android:label"
         android:fullBackupOnly="false">
         <activity
             android:name=".MainActivity"
@@ -133,6 +134,38 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_launcher" />
+
+
+        <!-- paypal -->
+        <activity
+            android:name="com.paypal.openid.RedirectUriReceiverActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:theme="@style/PYPLAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="paypalpay"
+                    android:scheme="com.wrteam.eshop" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.paypal.pyplcheckout.home.view.activities.PYPLInitiateCheckoutActivity"
+            android:theme="@style/AppFullScreenTheme"
+            android:exported="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="paypalxo"
+                    android:scheme="com.wrteam.eshop" />
+            </intent-filter>
+        </activity>
+        <!-- paypal end -->
+
 
     </application>
 </manifest>

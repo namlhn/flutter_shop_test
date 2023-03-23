@@ -2,18 +2,29 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:coinbase_commerce/coinbase.dart';
+import 'package:coinbase_commerce/enums.dart';
+import 'package:coinbase_commerce/returnObjects/checkoutObject.dart';
 import 'package:eshop/Helper/Session.dart';
 import 'package:eshop/Helper/SqliteData.dart';
 import 'package:eshop/Provider/CartProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
+import 'package:eshop/Screen/webview_custom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_paypal_native/flutter_paypal_native.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
 import 'package:walletconnect_flutter_v2/apis/web3wallet/web3wallet.dart';
-
+import 'package:flutter_paypal_native/str_helper.dart';
+import 'package:flutter_paypal_native/models/environment.dart';
+import 'package:flutter_paypal_native/models/currency_code.dart';
+import 'package:flutter_paypal_native/models/purchase_unit.dart';
+import 'package:flutter_paypal_native/models/user_action.dart';
+import 'package:flutter_paypal_native/models/order_callback.dart';
 import '../Helper/ApiBaseHelper.dart';
 import '../Helper/Color.dart';
 import '../Helper/String.dart';
@@ -26,6 +37,7 @@ import '../ui/widgets/AppBtn.dart';
 import '../ui/widgets/DiscountLabel.dart';
 import '../ui/widgets/SimBtn.dart';
 import '../ui/widgets/SimpleAppBar.dart';
+import 'Add_Address.dart';
 import 'HomePage.dart';
 import 'Manage_Address.dart';
 import 'Order_Success.dart';
@@ -86,6 +98,7 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
   bool _isLoading = true;
 
   //Razorpay? _razorpay;
+  final _FlutterPaypalNativePlugin = FlutterPaypalNative.instance;
 
   TextEditingController noteC = TextEditingController();
   StateSetter? checkoutState;
@@ -113,6 +126,7 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
     super.initState();
     prescriptionImages.clear();
     callApi();
+    initPayPal();
     addressList = [
       User(name: "Nhà Nam", address: "2/4/64A Lê Thúc Hoạch", cityId: "1")
     ];
@@ -129,6 +143,53 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
         0.150,
       ),
     ));
+  }
+
+  void initPayPal() async {
+    //set debugMode for error logging
+    FlutterPaypalNative.isDebugMode = true;
+
+    //initiate payPal plugin
+    await _FlutterPaypalNativePlugin.init(
+      //your app id !!! No Underscore!!! see readme.md for help
+      returnUrl: "com.wrteam.eshop://paypalpay",
+      //client id from developer dashboard
+      clientID: "AaFTXzhM7h8XgEr9yKkGqdi42SqVKaosxHcTMqKz_GdEME-1xme4iJmR-UxBEgBl-VyiI-iZgBb--S9_",
+      //sandbox, staging, live etc
+      payPalEnvironment: FPayPalEnvironment.sandbox,
+
+      //what currency do you plan to use? default is US dollars
+      currencyCode: FPayPalCurrencyCode.usd,
+      //action paynow?
+      action: FPayPalUserAction.payNow,
+    );
+
+    //call backs for payment
+    _FlutterPaypalNativePlugin.setPayPalOrderCallback(
+      callback: FPayPalOrderCallback(
+        onCancel: () {
+          //user canceled the payment
+          setSnackbar('cancel', context);
+        },
+        onSuccess: (data) {
+          //successfully paid
+          //remove all items from queue
+          _FlutterPaypalNativePlugin.removeAllPurchaseItems();
+          String orderID = data.orderId ?? "";
+          placeOrder('');
+        },
+        onError: (data) {
+          //an error occured
+          setSnackbar("error: ${data.reason}", context);
+        },
+        onShippingChange: (data) {
+          //the user updated the shipping address
+          setSnackbar(
+              "shipping change: ${data.shippingAddress?.addressLine1 ?? ""}",
+              context);
+        },
+      ),
+    );
   }
 
   callApi() async {
@@ -1456,7 +1517,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
             totalPrice = oriPrice;
 
             if (isPromoValid!) {
-              validatePromo(true);
             } else if (isUseWallet!) {
               if (mounted) {
                 checkoutState!(() {
@@ -1571,7 +1631,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
               totalPrice = oriPrice;
 
               if (isPromoValid!) {
-                validatePromo(true);
               } else if (isUseWallet!) {
                 if (mounted) {
                   checkoutState!(() {
@@ -1667,7 +1726,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
             totalPrice = oriPrice;
 
             if (isPromoValid!) {
-              validatePromo(false);
             } else if (isUseWallet!) {
               context.read<CartProvider>().setProgress(false);
               if (mounted) {
@@ -1787,7 +1845,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                 totalPrice = oriPrice;
 
                 if (isPromoValid!) {
-                  validatePromo(false);
                 } else if (isUseWallet!) {
                   context.read<CartProvider>().setProgress(false);
                   if (mounted) {
@@ -2361,18 +2418,15 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                           ),
                         ),
                         onTap: () async {
-                          await Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (BuildContext context) =>
-                                          ManageAddress(
-                                              home: false,
-                                              update: updateCheckout,
-                                              updateProgress: updateProgress)))
-                              .then((value) {
-                            checkoutState!(() {
-                              deliverable = false;
-                            });
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => AddAddress(
+                                      update: false,
+                                      index: addressList.length,
+                                    )),
+                          ).then((value) async {
+                            //await getShipRocketDeliveryCharge();
                           });
                         },
                       ),
@@ -2682,145 +2736,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
         ));
   }
 
-  Future<void> validatePromo(bool check) async {
-    _isNetworkAvail = await isNetworkAvailable();
-    if (_isNetworkAvail) {
-      try {
-        context.read<CartProvider>().setProgress(true);
-        if (check) {
-          if (mounted && checkoutState != null) checkoutState!(() {});
-        }
-        setState(() {});
-        var parameter = {
-          USER_ID: CUR_USERID,
-          PROMOCODE: promoC.text,
-          FINAL_TOTAL: oriPrice.toString()
-        };
-        apiBaseHelper.postAPICall(validatePromoApi, parameter).then((getdata) {
-          bool error = getdata["error"];
-          String? msg = getdata["message"];
-          if (!error) {
-            var data = getdata["data"][0];
-
-            totalPrice = double.parse(data["final_total"]);
-
-            promoAmt = double.parse(data["final_discount"]);
-
-            promocode = data["promo_code"];
-
-            isPromoValid = true;
-            isPromoLen = false;
-            setSnackbar(getTranslated(context, 'PROMO_SUCCESS')!, context);
-          } else {
-            isPromoValid = false;
-            promoAmt = 0;
-            promocode = null;
-            promoC.clear();
-            isPromoLen = false;
-            var data = getdata["data"];
-
-            totalPrice = double.parse(data["final_total"]);
-
-            setSnackbar(msg!, context);
-          }
-          if (isUseWallet!) {
-            remWalBal = 0;
-            payMethod = null;
-            usedBal = 0;
-            isUseWallet = false;
-            isPayLayShow = true;
-
-            selectedMethod = null;
-            context.read<CartProvider>().setProgress(false);
-            if (mounted && check) checkoutState!(() {});
-            setState(() {});
-          } else {
-            if (mounted && check) checkoutState!(() {});
-            setState(() {});
-            context.read<CartProvider>().setProgress(false);
-          }
-        }, onError: (error) {
-          setSnackbar(error.toString(), context);
-        });
-      } on TimeoutException catch (_) {
-        context.read<CartProvider>().setProgress(false);
-        if (mounted && check) checkoutState!(() {});
-        setState(() {});
-        setSnackbar(getTranslated(context, 'somethingMSg')!, context);
-      }
-    } else {
-      _isNetworkAvail = false;
-      if (mounted && check) checkoutState!(() {});
-      setState(() {});
-    }
-  }
-
-  Future<void> flutterwavePayment(String? tranId, String orderID,
-      String? status, String? msg, bool redirect) async {
-    _isNetworkAvail = await isNetworkAvailable();
-    if (_isNetworkAvail) {
-      try {
-        context.read<CartProvider>().setProgress(true);
-
-        var parameter = {
-          AMOUNT: usedBal > 0
-              ? totalPrice.toString()
-              : isStorePickUp == "false"
-                  ? (totalPrice + delCharge).toString()
-                  : totalPrice.toString(),
-          USER_ID: CUR_USERID,
-          ORDER_ID: orderID
-        };
-        apiBaseHelper.postAPICall(flutterwaveApi, parameter).then((getdata) {
-          bool error = getdata["error"];
-          String? msg = getdata["message"];
-          if (!error) {
-            var data = getdata["link"];
-
-            Navigator.push(
-                context,
-                CupertinoPageRoute(
-                    builder: (BuildContext context) => PaypalWebview(
-                          url: data,
-                          from: "order",
-                          orderId: orderID,
-                        ))).then(
-              (value) {
-                if (value == 'true') {
-                  //     addTransaction(tranId, orderID, SUCCESS, msg, true);
-
-                  checkoutState!(
-                    () {
-                      _placeOrder = true;
-                    },
-                  );
-                  //   setState(() {});
-                } else {
-                  deleteOrders(orderID);
-                }
-              },
-            );
-          } else {
-            setSnackbar(msg!, context);
-          }
-
-          context.read<CartProvider>().setProgress(false);
-        }, onError: (error) {
-          setSnackbar(error.toString(), context);
-        });
-      } on TimeoutException catch (_) {
-        context.read<CartProvider>().setProgress(false);
-        setSnackbar(getTranslated(context, 'somethingMSg')!, context);
-      }
-    } else {
-      if (mounted) {
-        checkoutState!(() {
-          _isNetworkAvail = false;
-        });
-      }
-    }
-  }
-
   bool validateAndSave() {
     final form = _formkey.currentState!;
     form.save();
@@ -2975,9 +2890,15 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                           } else if (payMethod == 'ZakumiFi Coin') {
                             Navigator.pop(context);
                             voidCoinTemp();
-                          } else {
-                            placeOrder('');
+                          } else if (payMethod == 'PAYPAL') {
                             Navigator.pop(context);
+                            paypalSend();
+                          } else if (payMethod == 'Coin') {
+                            Navigator.pop(context);
+                            coinbasePayment();
+                          } else {
+                            Navigator.pop(context);
+                            placeOrder('');
                           }
                         })
                   ],
@@ -2993,6 +2914,51 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
         }).then((value) => setState(() {
           confDia = true;
         }));
+  }
+
+  coinbasePayment() async {
+    context.read<CartProvider>().setProgress(true);
+    Coinbase coinbase =
+        Coinbase('c1e57c53-f88c-4ef9-92ae-8db91fa47b5f', debug: true);
+    CheckoutObject checkout = await coinbase.createCheckout(
+        description: 'Test payment with coinbase',
+        name: 'Order 07654',
+        pricingType: PricingType.fixedPrice,
+        amount: 1,
+        currency: CurrencyType.usd);
+    context.read<CartProvider>().setProgress(false);
+    CheckoutObject charge = await coinbase.viewCheckout(checkout.id!);
+    final Uri _url = Uri.parse( 'https://commerce.coinbase.com/checkout/${charge.id}');
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+    placeOrder('');
+    /*
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+          builder: (context) => WebviewCustom(
+                appName: 'Payment Coin',
+                url: 'https://commerce.coinbase.com/checkout/${charge.id}',
+              )),
+    ).then((value) async {
+      placeOrder('');
+    });*/
+  }
+
+  paypalSend() async {
+    _FlutterPaypalNativePlugin.addPurchaseUnit(
+      FPayPalPurchaseUnit(
+        // random prices
+        amount: 1,
+
+        ///please use your own algorithm for referenceId. Maybe ProductID?
+        referenceId: FPayPalStrHelper.getRandomString(16),
+      ),
+    );
+    _FlutterPaypalNativePlugin.makeOrder(
+      action: FPayPalUserAction.payNow,
+    );
   }
 
   voidCoinTemp() {
@@ -3104,66 +3070,6 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
         pageBuilder: (context, animation1, animation2) {
           return Container();
         });
-  }
-
-  voidCoinTransfer(BuildContext context) async {
-    Web3Wallet web3Wallet = await Web3Wallet.createInstance(
-      relayUrl: '', // The relay websocket URL, leave blank to use the default
-      projectId: '34ece1a1372aa603f8a66b7914dca9a7',
-      metadata: PairingMetadata(
-        name: 'Wallet EPM',
-        description: 'A wallet test for payment ecommerce with coin',
-        url: 'https://walletconnect.com',
-        icons: ['https://avatars.githubusercontent.com/u/37784886'],
-      ),
-    );
-
-    final kadenaSignRequestHandler = (String topic, dynamic parameters) async {
-      // Handling Steps
-      // 1. Parse the request, if there are any errors thrown while trying to parse
-      // the client will automatically respond to the requester with a
-      // JsonRpcError.invalidParams error
-      final parsedResponse = parameters;
-
-      // 2. Show a modal to the user with the signature info: Allow approval/rejection
-      bool userApproved = await showDialog(
-        // This is an example, you will have to make your own changes to make it work.
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Sign Transaction'),
-            content: SizedBox(
-              width: 300,
-              height: 350,
-              child: Text(parsedResponse.toString()),
-            ),
-            actions: [
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context, true),
-                child: Text('Accept'),
-              ),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: Text('Reject'),
-              ),
-            ],
-          );
-        },
-      );
-
-      // 3. Respond to the dApp based on user response
-      if (userApproved) {
-        return 'Signed!';
-      } else {
-        return 'User Rejected!';
-      }
-    };
-
-    web3Wallet.registerRequestHandler(
-      method: 'eth_signTransaction',
-      handler: kadenaSignRequestHandler,
-      chainId: '1',
-    );
   }
 
   void bankTransfer() {

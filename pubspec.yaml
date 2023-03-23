@@ -88,6 +88,9 @@ dependencies:
   firebase_core: ^2.3.0
   my_fatoorah: ^3.1.0
   walletconnect_flutter_v2: ^1.2.0
+  flutter_paypal_native: ^0.0.8
+  coinbase_commerce: ^0.0.3
+
 
 dependency_overrides:
   modal_bottom_sheet:

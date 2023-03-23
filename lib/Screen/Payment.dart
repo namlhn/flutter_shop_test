@@ -39,11 +39,13 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
   List<RadioModel> timeModelList = [];
   List<String?> paymentMethodList = [];
   List<String> paymentIconList = [
-    'assets/images/gpay.svg',
+    'assets/images/zakumi.svg',
+    'assets/images/dollar.png',
     'assets/images/cod_payment.svg',
     'assets/images/paypal.svg',
     'assets/images/momo.svg',
-    'assets/images/gpay.svg'
+    'assets/images/banktransfer.svg',
+
   ];
 
   Animation? buttonSqueezeanimation;
@@ -57,10 +59,11 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
     timeSlotList.length = 0;
     paymentMethodList = [
       'ZakumiFi Coin',
+      'Coin',
       'COD',
       'PAYPAL',
       'MOMO',
-      'CHUYỂN KHOẢN',
+      'CHUYỂN KHOẢN'
     ];
     for (int i = 0; i < paymentMethodList.length; i++) {
       payModel.add(RadioModel(
