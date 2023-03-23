@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 import 'package:provider/provider.dart';
+import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
+import 'package:walletconnect_flutter_v2/apis/web3wallet/web3wallet.dart';
 
 import '../Helper/ApiBaseHelper.dart';
 import '../Helper/Color.dart';
@@ -2970,6 +2972,9 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                           if (payMethod == 'CHUYỂN KHOẢN') {
                             Navigator.pop(context);
                             bankTransfer();
+                          } else if (payMethod == 'ZakumiFi Coin') {
+                            Navigator.pop(context);
+                            voidCoinTemp();
                           } else {
                             placeOrder('');
                             Navigator.pop(context);
@@ -2988,6 +2993,177 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
         }).then((value) => setState(() {
           confDia = true;
         }));
+  }
+
+  voidCoinTemp() {
+    showGeneralDialog(
+        barrierColor: Theme.of(context).colorScheme.black.withOpacity(0.5),
+        transitionBuilder: (context, a1, a2, widget) {
+          return Transform.scale(
+            scale: a1.value,
+            child: Opacity(
+                opacity: a1.value,
+                child: AlertDialog(
+                  contentPadding: const EdgeInsets.all(0),
+                  elevation: 2.0,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(20.0, 20.0, 0, 2.0),
+                            child: Text(
+                              'THANH TOÁN QUA VÍ COIN',
+                              style: Theme.of(this.context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .fontColor),
+                            )),
+                        Divider(
+                            color: Theme.of(context).colorScheme.lightBlack),
+                        Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+                            child: Text('Thanh toán bằng coi ZakumiFi',
+                                style: Theme.of(context).textTheme.bodySmall)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Text(
+                            'Thông tin địa chỉ ví',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .fontColor),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0,
+                          ),
+                          child: Wrap(
+                            children: [
+                              Text(
+                                "0xb4495855C1d723E0515fCC04a38b7F7FcBdcf727",
+                                style: Theme.of(context).textTheme.titleSmall,
+                              ),
+                              IconButton(
+                                  onPressed: () async {
+                                    await Clipboard.setData(ClipboardData(
+                                        text:
+                                            "0xb4495855C1d723E0515fCC04a38b7F7FcBdcf727"));
+                                  },
+                                  icon: Icon(Icons.copy))
+                            ],
+                          ),
+                        ),
+                      ]),
+                  actions: <Widget>[
+                    TextButton(
+                        child: Text(getTranslated(context, 'CANCEL')!,
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.lightBlack,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {
+                          checkoutState!(() {
+                            _placeOrder = true;
+                          });
+                          Navigator.pop(context);
+                        }),
+                    TextButton(
+                        child: Text(getTranslated(context, 'DONE')!,
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.fontColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {
+                          Navigator.pop(context);
+
+                          context.read<CartProvider>().setProgress(true);
+
+                          placeOrder('');
+                        })
+                  ],
+                )),
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 200),
+        barrierDismissible: false,
+        barrierLabel: '',
+        context: context,
+        pageBuilder: (context, animation1, animation2) {
+          return Container();
+        });
+  }
+
+  voidCoinTransfer(BuildContext context) async {
+    Web3Wallet web3Wallet = await Web3Wallet.createInstance(
+      relayUrl: '', // The relay websocket URL, leave blank to use the default
+      projectId: '34ece1a1372aa603f8a66b7914dca9a7',
+      metadata: PairingMetadata(
+        name: 'Wallet EPM',
+        description: 'A wallet test for payment ecommerce with coin',
+        url: 'https://walletconnect.com',
+        icons: ['https://avatars.githubusercontent.com/u/37784886'],
+      ),
+    );
+
+    final kadenaSignRequestHandler = (String topic, dynamic parameters) async {
+      // Handling Steps
+      // 1. Parse the request, if there are any errors thrown while trying to parse
+      // the client will automatically respond to the requester with a
+      // JsonRpcError.invalidParams error
+      final parsedResponse = parameters;
+
+      // 2. Show a modal to the user with the signature info: Allow approval/rejection
+      bool userApproved = await showDialog(
+        // This is an example, you will have to make your own changes to make it work.
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Sign Transaction'),
+            content: SizedBox(
+              width: 300,
+              height: 350,
+              child: Text(parsedResponse.toString()),
+            ),
+            actions: [
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: Text('Accept'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text('Reject'),
+              ),
+            ],
+          );
+        },
+      );
+
+      // 3. Respond to the dApp based on user response
+      if (userApproved) {
+        return 'Signed!';
+      } else {
+        return 'User Rejected!';
+      }
+    };
+
+    web3Wallet.registerRequestHandler(
+      method: 'eth_signTransaction',
+      handler: kadenaSignRequestHandler,
+      chainId: '1',
+    );
   }
 
   void bankTransfer() {

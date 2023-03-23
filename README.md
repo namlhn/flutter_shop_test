@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-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
+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
 
 https://eshopweb.store/admin/client-api-keys
 
