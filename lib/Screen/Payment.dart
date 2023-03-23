@@ -40,7 +40,7 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
   List<String?> paymentMethodList = [];
   List<String> paymentIconList = [
     'assets/images/zakumi.svg',
-    'assets/images/dollar.png',
+    'assets/images/dollar.svg',
     'assets/images/cod_payment.svg',
     'assets/images/paypal.svg',
     'assets/images/momo.svg',

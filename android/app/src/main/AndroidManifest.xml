@@ -39,7 +39,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="EPM Shop"
+        android:label="CssiShop"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
 
