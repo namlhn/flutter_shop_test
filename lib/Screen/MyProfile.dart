@@ -59,7 +59,7 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
   var isDarkTheme;
   bool isDark = false;
   late ThemeNotifier themeNotifier;
-  List<String> langCode = ["en", "zh", "es", "hi", "ar", "ru", "ja", "de"];
+  List<String> langCode = ["en", "vi"];
   List<String?> themeList = [];
   List<String?> languageList = [];
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
@@ -1070,13 +1070,7 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
   addLanguageList(BuildContext ctx) {
     return [
       getTranslated(ctx, 'ENGLISH_LAN'),
-      getTranslated(ctx, 'CHINESE_LAN'),
-      getTranslated(ctx, 'SPANISH_LAN'),
-      getTranslated(ctx, 'HINDI_LAN'),
-      getTranslated(ctx, 'ARABIC_LAN'),
-      getTranslated(ctx, 'RUSSIAN_LAN'),
-      getTranslated(ctx, 'JAPANISE_LAN'),
-      getTranslated(ctx, 'GERMAN_LAN'),
+      'Vietnamese',
     ];
   }
 
