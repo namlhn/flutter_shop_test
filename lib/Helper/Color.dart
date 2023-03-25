@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 extension colors on ColorScheme {
   static  MaterialColor primary_app = const MaterialColor(
-    0xff00BBD4,
+    0xff0D68FF,
     <int, Color>{
       50: primary,
       100: primary,
@@ -17,7 +17,7 @@ extension colors on ColorScheme {
     },
   );
 
-  static const Color primary = Color(0xff00BBD4);
+  static const Color primary = Color(0xff0D68FF);
 
   static const Color secondary = Color(0xffF0F0F0);
 

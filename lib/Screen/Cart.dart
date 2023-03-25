@@ -2067,7 +2067,7 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                 child: SimBtn(
                     width: 0.9,
                     height: 35,
-                    title: 'Xác nhận đặt hàng',
+                    title: getTranslated(context, 'PROCEED_CHECKOUT'),
                     onBtnSelected: () async {
                       checkout(cartList);
                     }),

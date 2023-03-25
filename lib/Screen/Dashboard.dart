@@ -16,6 +16,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/styles/DesignConfig.dart';
@@ -35,7 +36,7 @@ class _HomePageState extends State<Dashboard>
   int _selBottom = 0;
 
   final PageController _pageController = PageController();
-  bool _isNetworkAvail = true;
+
   var db = DatabaseHelper();
   late AnimationController navigationContainerAnimationController =
       AnimationController(
@@ -121,7 +122,7 @@ class _HomePageState extends State<Dashboard>
   }
 
   AppBar _getAppBar() {
-    String? title;
+    String? title = 'GLOBAL MARKET';
     if (_selBottom == 1) {
       title = getTranslated(context, 'CATEGORY');
     } else if (_selBottom == 2) {
@@ -131,19 +132,13 @@ class _HomePageState extends State<Dashboard>
     } else if (_selBottom == 4) {
       title = getTranslated(context, 'PROFILE');
     }
-
     return AppBar(
       elevation: 0,
       centerTitle: false,
       automaticallyImplyLeading: false,
-      title: _selBottom == 0
-          ? SvgPicture.asset(
-              'assets/images/loginlogo.svg',
-              height: 35,
-            )
-          : Text(
+      title: Text(
               title!,
-              style: const TextStyle(
+              style:  GoogleFonts.playfairDisplay(
                   color: colors.primary, fontWeight: FontWeight.normal),
             ),
       actions: <Widget>[

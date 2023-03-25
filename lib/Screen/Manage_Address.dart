@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:eshop/Provider/UserProvider.dart';
 import 'package:eshop/Screen/Cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../ui/styles/DesignConfig.dart';
 import '../ui/widgets/AppBtn.dart';
 import '../Helper/Color.dart';

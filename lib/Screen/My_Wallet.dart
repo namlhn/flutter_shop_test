@@ -205,7 +205,7 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                       topLeft: Radius.circular(40.0),
                       topRight: Radius.circular(40.0),
                     ),
-                   // color: Theme.of(context).colorScheme.white,
+                    // color: Theme.of(context).colorScheme.white,
                   ),
                   padding: EdgeInsetsDirectional.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -306,16 +306,12 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: getAppBar(),
-        body: _isNetworkAvail
-            ? _isLoading
-                ? shimmer(context)
-                : Stack(
-                    children: <Widget>[
-                      showContent(),
-                      showCircularProgress(_isProgress, colors.primary),
-                    ],
-                  )
-            : noInternet(context));
+        body: Stack(
+          children: <Widget>[
+            showContent(),
+            showCircularProgress(_isProgress, colors.primary),
+          ],
+        ));
   }
 
   withDrawDailog() {
@@ -325,12 +321,11 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(25.0))),
           title: Text(getTranslated(context, 'SEND_WITHD_REQ_LBL')!,
-              textAlign: TextAlign.center,style: Theme.of(context)
+              textAlign: TextAlign.center,
+              style: Theme.of(context)
                   .textTheme
                   .titleLarge!
-                  .copyWith(
-                  color:
-                  Theme.of(context).colorScheme.fontColor)),
+                  .copyWith(color: Theme.of(context).colorScheme.fontColor)),
           content: StatefulBuilder(builder: (context, StateSetter setStater) {
             return Form(
               key: _formkey1,
@@ -383,16 +378,18 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                             filled: true,
                             isDense: true,
                             hintText: getTranslated(context, 'WIDTH_AMT_LBL')!,
-                            hintStyle:
-                                Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .fontColor
-                                          .withOpacity(0.7),
-                                      fontSize: 13.5,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                    ),
+                            hintStyle: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .fontColor
+                                      .withOpacity(0.7),
+                                  fontSize: 13.5,
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                ),
                           ),
                         ),
                       )),
@@ -468,8 +465,8 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .fontColor),
-                                    borderRadius:
-                                        const BorderRadius.all(Radius.circular(5.0)),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(5.0)),
                                   ),
                                   child: Text(getTranslated(context, 'CANCEL')!,
                                       textAlign: TextAlign.center,
@@ -702,8 +699,11 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                   padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 2.0),
                   child: Text(
                     getTranslated(context, 'ADD_MONEY')!,
-                    style: Theme.of(this.context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.fontColor),
+                    style: Theme.of(this.context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(
+                            color: Theme.of(context).colorScheme.fontColor),
                   )),
               Divider(color: Theme.of(context).colorScheme.lightBlack),
               Form(
@@ -1009,10 +1009,9 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                   builder: (BuildContext context) => PaypalWebview(
                         url: data,
                         from: "wallet",
-                      )))
-            .then((value) async {
-              await getUserWalletBalanceFromTransactionAPI();
-            });
+                      ))).then((value) async {
+            await getUserWalletBalanceFromTransactionAPI();
+          });
         } else {
           setSnackbar(msg!, context);
         }
@@ -1273,30 +1272,30 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
 
     double amt = price * 100;
 
-   // if (contact != '' && email != '') {
-      if (mounted) {
-        setState(() {
-          _isProgress = true;
-        });
-      }
+    // if (contact != '' && email != '') {
+    if (mounted) {
+      setState(() {
+        _isProgress = true;
+      });
+    }
 
-      String orderId =
-          'wallet-refill-user-$CUR_USERID-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(900) + 100}';
+    String orderId =
+        'wallet-refill-user-$CUR_USERID-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(900) + 100}';
 
-      var options = {
-        KEY: razorpayId,
-        AMOUNT: amt.toString(),
-        NAME: settingsProvider.userName,
-        'prefill': {CONTACT: contact, EMAIL: email},
-        'notes': {'order_id': orderId}
-      };
+    var options = {
+      KEY: razorpayId,
+      AMOUNT: amt.toString(),
+      NAME: settingsProvider.userName,
+      'prefill': {CONTACT: contact, EMAIL: email},
+      'notes': {'order_id': orderId}
+    };
 
-      try {
-        _razorpay.open(options);
-      } catch (e) {
-        debugPrint(e.toString());
-      }
-   /* } else {
+    try {
+      _razorpay.open(options);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    /* } else {
       if (email == '') {
         setSnackbar(getTranslated(context, 'emailWarning')!, context);
       } else if (contact == '') {
@@ -1333,7 +1332,7 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                     ),
                     const Divider(),
                     Text(
-                        "${getTranslated(context, 'ID_LBL')!} : ${withdTranList[index].id!}"),
+                        "Transaction Hash: 0x0d20002afc852b1113b5429856e83a4bca82562ab47f476f66149aa568ff6bec "),
                     Text("Payment Address : ${withdTranList[index].payAdd!}"),
                   ]))),
     );
@@ -1341,11 +1340,7 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
 
   listItem(int index) {
     Color back;
-    if (tranList[index].type == "credit") {
-      back = Colors.green;
-    } else {
-      back = Colors.red;
-    }
+    back = Colors.green;
     return Card(
       elevation: 0,
       margin: const EdgeInsets.all(5.0),
@@ -1362,24 +1357,25 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            "${getTranslated(context, 'AMOUNT')!} : ${getPriceFormat(context, double.parse(tranList[index].amt!))!}",
+                            "${getTranslated(context, 'AMOUNT')!} : 50 USD",
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.fontColor,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Text(tranList[index].date!),
+                        const Text("12/02/2023"),
                       ],
                     ),
                     const Divider(),
                     Row(
-                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text(
-                            "${getTranslated(context, 'ID_LBL')!} : ${tranList[index].id!}"),
-                        const Spacer(),
+                        Expanded(
+                            child: Text(
+                          "Transaction Hash: 0x0d20002afc852b1113b5429856e83a4bca82562ab47f476f66149aa568ff6be",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        )),
                         Container(
-                          margin: const EdgeInsets.only(left: 8),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 2),
                           decoration: BoxDecoration(
@@ -1387,18 +1383,15 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(4.0))),
                           child: Text(
-                            tranList[index].type!,
+                            "Paypal",
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.white),
                           ),
                         )
                       ],
                     ),
-                    tranList[index].msg != null &&
-                            tranList[index].msg!.isNotEmpty
-                        ? Text(
-                            "${getTranslated(context, 'MSG')!} : ${tranList[index].msg!}")
-                        : Container(),
+                    Text(
+                        "${getTranslated(context, 'MSG')!} : check out for order #3467"),
                   ]))),
     );
   }
@@ -1736,7 +1729,6 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                 payment['myfaoorah_payment_method'] == '1' ? true : false;
             print("my fatoorah****$myfatoorah");
 
-
             if (razorpay!) razorpayId = payment["razorpay_key_id"];
             if (paystack!) {
               paystackId = payment["paystack_key_id"];
@@ -1823,9 +1815,7 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                       ),
                       Consumer<UserProvider>(
                           builder: (context, userProvider, _) {
-                        return Text(
-                            getPriceFormat(context,
-                                double.parse(userProvider.curBalance))!,
+                        return Text('600 point',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleLarge!
@@ -1850,10 +1840,10 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                             SimBtn(
                               width: 0.39,
                               height: 35,
-                              title: getTranslated(context, 'WIDTH_MON_LBL')!,
+                              title: "CHANGE POINT",
                               onBtnSelected: () {
                                 //_showDialog1();
-                                withDrawDailog();
+                                // withDrawDailog();
                               },
                             ),
                           ],
@@ -1864,80 +1854,27 @@ class StateWallet extends State<MyWallet> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            !isWithdraw
-                ? tranList.isEmpty
-                    ? getNoItem(context)
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                                getTranslated(context, 'WAL_TRANS_LBL')!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .fontColor,
-                                        fontWeight: FontWeight.bold)),
-                          ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: (offset < total)
-                                ? tranList.length + 1
-                                : tranList.length,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return (index == tranList.length && isLoadingmore)
-                                  ? const Center(
-                                      child: CircularProgressIndicator(
-                                      color: colors.primary,
-                                    ))
-                                  : listItem(index);
-                            },
-                          ),
-                        ],
-                      )
-                : withdTranList.isEmpty
-                    ? getNoItem(context)
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                                getTranslated(context, 'WITHD_WAL_TRANS_LBL')!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .fontColor,
-                                        fontWeight: FontWeight.bold)),
-                          ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: (offset1 < total1)
-                                ? withdTranList.length + 1
-                                : withdTranList.length,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return (index == withdTranList.length &&
-                                      isLoadingmore)
-                                  ? const Center(
-                                      child: CircularProgressIndicator(
-                                      color: colors.primary,
-                                    ))
-                                  : listItem1(index);
-                            },
-                          ),
-                        ],
-                      ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(getTranslated(context, 'WAL_TRANS_LBL')!,
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Theme.of(context).colorScheme.fontColor,
+                          fontWeight: FontWeight.bold)),
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 2,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return listItem(index);
+                  },
+                ),
+              ],
+            ),
           ]),
         ));
   }

@@ -42,20 +42,8 @@ Locale _locale(String languageCode) {
   switch (languageCode) {
     case "en":
       return const Locale("en", 'US');
-    case "zh":
-      return const Locale("zh", "CN");
-    case "es":
-      return const Locale("es", "ES");
-    case "hi":
-      return const Locale("hi", "IN");
-    case "ar":
-      return const Locale("ar", "DZ");
-    case "ru":
-      return const Locale("ru", "RU");
-    case "ja":
-      return const Locale("ja", "JP");
-    case "de":
-      return const Locale("de", "DE");
+    case "vi":
+      return const Locale("vi", "VN");
     default:
       return const Locale("en", 'US');
   }

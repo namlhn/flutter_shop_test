@@ -150,7 +150,7 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
                     return getUserImage(
                         profileImage, openChangeUserDetailsBottomSheet);
                   }),
-              Column(
+              Expanded(child:  Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -160,83 +160,51 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
                         nameController = TextEditingController(text: userName);
                         return Text(
                           userName == ""
-                              ? getTranslated(context, 'GUEST')!
+                              ? 'Hello, Le Hoai Nam'
                               : userName,
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
                               .copyWith(
-                                color: Theme.of(context).colorScheme.fontColor,
-                              ),
+                            color: Theme.of(context).colorScheme.fontColor,
+                          ),
                         );
                       }),
                   Selector<UserProvider, String>(
                       selector: (_, provider) => provider.mob,
                       builder: (context, userMobile, child) {
-                        return userMobile != ""
-                            ? Text(
-                                userMobile,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .fontColor,
-                                        fontWeight: FontWeight.normal),
-                              )
-                            : Container(
-                                height: 0,
-                              );
+                        return Text(
+                          'namlhnam@gmail.com',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .fontColor,
+                              fontWeight: FontWeight.normal),
+                        );
                       }),
                   Selector<UserProvider, String>(
                       selector: (_, provider) => provider.email,
                       builder: (context, userEmail, child) {
                         emailController =
                             TextEditingController(text: userEmail);
-                        return userEmail != ""
-                            ? Text(
-                                userEmail,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .fontColor,
-                                        fontWeight: FontWeight.normal),
-                              )
-                            : Container(
-                                height: 0,
-                              );
+                        return Text(
+                          '0x8a50b2a8637deefadccc1e83be7c0ff20302ffed',maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .fontColor,
+                              fontWeight: FontWeight.normal),
+                        );
                       }),
-                  Consumer<UserProvider>(builder: (context, userProvider, _) {
-                    return userProvider.curUserName == ""
-                        ? Padding(
-                            padding: const EdgeInsetsDirectional.only(top: 7),
-                            child: InkWell(
-                              child: Text(
-                                  getTranslated(context, 'LOGIN_REGISTER_LBL')!,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        color: colors.primary,
-                                        decoration: TextDecoration.underline,
-                                      )),
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (BuildContext context) => const Login(),
-                                  ),
-                                );
-                              },
-                            ))
-                        : Container();
-                  }),
                 ],
-              ),
+              )),
             ],
           ),
         ));
@@ -374,23 +342,14 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
             : _getDrawerItem(getTranslated(context, 'MANAGE_ADD_LBL')!,
                 'assets/images/pro_address.svg'),
         //CUR_USERID == "" || CUR_USERID == null ? Container() : _getDivider(),
-        CUR_USERID == "" || CUR_USERID == null
-            ? Container()
-            : _getDrawerItem(getTranslated(context, 'MYWALLET')!,
+          _getDrawerItem(getTranslated(context, 'MYWALLET')!,
                 'assets/images/pro_wh.svg'),
         CUR_USERID == "" || CUR_USERID == null
             ? Container()
             : _getDrawerItem(getTranslated(context, 'YOUR_PROM_CO')!,
                 'assets/images/promo.png'),
         // CUR_USERID == "" || CUR_USERID == null ? Container() : _getDivider(),
-        CUR_USERID == "" || CUR_USERID == null
-            ? Container()
-            : _getDrawerItem(getTranslated(context, 'MYTRANSACTION')!,
-                'assets/images/pro_th.svg'),
-        // CUR_USERID == "" || CUR_USERID == null ? Container() : _getDivider(),
-        _getDrawerItem(getTranslated(context, 'CHANGE_THEME_LBL')!,
-            'assets/images/pro_theme.svg'),
-        // _getDivider(),
+
         _getDrawerItem(getTranslated(context, 'CHANGE_LANGUAGE_LBL')!,
             'assets/images/pro_language.svg'),
         //  CUR_USERID == "" || CUR_USERID == null ? Container() : _getDivider(),
@@ -429,11 +388,8 @@ class StateProfile extends State<MyProfile> with TickerProviderStateMixin {
         _getDrawerItem(getTranslated(context, 'RETURN_PO_LBL')!,
             'assets/images/return_policy.svg'),
         // _getDivider(),
-        _getDrawerItem(
-            getTranslated(context, 'RATE_US')!, 'assets/images/pro_rateus.svg'),
-        // _getDivider(),
-        _getDrawerItem(getTranslated(context, 'SHARE_APP')!,
-            'assets/images/pro_share.svg'),
+
+
         CUR_USERID == "" || CUR_USERID == null
             ? Container()
             : _getDrawerItem(getTranslated(context, 'DEL_ACC_LBL')!, ''),

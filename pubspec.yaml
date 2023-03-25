@@ -90,6 +90,8 @@ dependencies:
   walletconnect_flutter_v2: ^1.2.0
   flutter_paypal_native: ^0.0.8
   coinbase_commerce: ^0.0.3
+  google_fonts: ^4.0.3
+  get: ^4.6.5
 
 
 dependency_overrides:

@@ -41,8 +41,8 @@ class _SplashScreen extends State<Splash> {
             height: double.infinity,
             color: colors.primary,
             child: Center(
-              child: SvgPicture.asset(
-                'assets/images/splashlogo.svg',
+              child: Image.asset(
+                'assets/images/splashlogo.png',
               ),
             ),
           ),

@@ -185,7 +185,7 @@ class _MyAppState extends State<MyApp> {
                   return supportedLocale;
                 }
               }*/
-              return  const Locale("vi", "VN");
+              return  const Locale("en", "US");
             },
             title: appName,
             theme: lightTheme,
@@ -196,8 +196,6 @@ class _MyAppState extends State<MyApp> {
               '/home': (context) => const Dashboard(),
               '/login': (context) => const Login(),
             },
-
-            darkTheme: darkTheme,
 
             themeMode: themeNotifier.getThemeMode(),
           ));

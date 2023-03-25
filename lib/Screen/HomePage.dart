@@ -1879,7 +1879,7 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
                 isDense: true,
-                hintText: 'Bạn tìm gì hôm nay ?',
+                hintText: getTranslated(context, 'searchHint'),
                 hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).colorScheme.fontColor,
                     ),
