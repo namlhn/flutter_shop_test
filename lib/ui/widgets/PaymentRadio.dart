@@ -40,8 +40,9 @@ class RadioItem extends StatelessWidget {
                         child: Text(_item.name!,style: TextStyle(color:Theme.of(context).colorScheme.fontColor),),
                     ),
                     const Spacer(),
-                    _item.img != "" ? SvgPicture.asset(_item.img!, height: 30,
-                        width: 30,) : Container()
+                    _item.img?.contains(".svg") == true ? SvgPicture.asset(_item.img!, height: 30,
+                        width: 30,) : Padding(padding: EdgeInsets.only(right: 15), child: Image.asset(_item.img!, height: 30,
+                        width: 30,),)
                 ],
             ),
         );

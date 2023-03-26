@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:eshop/Screen/Cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 import 'package:intl/intl.dart';
-
 import '../Helper/Color.dart';
 import '../Helper/Session.dart';
 import '../Helper/String.dart';
@@ -39,11 +37,10 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
   List<RadioModel> timeModelList = [];
   List<String?> paymentMethodList = [];
   List<String> paymentIconList = [
-    'assets/images/zakumi.svg',
-    'assets/images/dollar.svg',
+    'assets/images/zafi.png',
+    'assets/images/dollar.png',
     'assets/images/cod_payment.svg',
     'assets/images/paypal.svg',
-    'assets/images/momo.svg',
     'assets/images/banktransfer.svg',
 
   ];
@@ -59,11 +56,10 @@ class StatePayment extends State<Payment> with TickerProviderStateMixin {
     timeSlotList.length = 0;
     paymentMethodList = [
       'ZakumiFi Coin',
-      'Coin',
+      'DIGITAL COIN',
       'COD',
       'PAYPAL',
-      'MOMO',
-      'CHUYỂN KHOẢN'
+      'BANK TRANSFER'
     ];
     for (int i = 0; i < paymentMethodList.length; i++) {
       payModel.add(RadioModel(

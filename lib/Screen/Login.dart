@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:eshop/Helper/SqliteData.dart';
 import 'package:eshop/Helper/String.dart';
+import 'package:eshop/Screen/Dashboard.dart';
 import 'package:eshop/ui/widgets/cropped_container.dart';
 import 'package:eshop/Provider/FavoriteProvider.dart';
 import 'package:eshop/Provider/SettingProvider.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/styles/Validators.dart';
@@ -93,16 +95,14 @@ class _LoginPageState extends State<Login> with TickerProviderStateMixin {
   }
 
   void validateAndSubmit() async {
-    if (validateAndSave()) {
-      _playAnimation();
-      checkNetwork();
-    }
+    _playAnimation();
+    checkNetwork();
   }
 
   Future<void> checkNetwork() async {
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
-      getLoginUser();
+        Get.offAll(()=> const Dashboard());
     } else {
       Future.delayed(const Duration(seconds: 2)).then((_) async {
         await buttonController!.reverse();
@@ -376,11 +376,11 @@ class _LoginPageState extends State<Login> with TickerProviderStateMixin {
         },
         decoration: InputDecoration(
           prefixIcon: Icon(
-            Icons.phone_android,
+            Icons.email,
             color: Theme.of(context).colorScheme.fontColor,
             size: 20,
           ),
-          hintText: getTranslated(context, 'MOBILEHINT_LBL'),
+          hintText: "Your email",
           hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
               color: Theme.of(context).colorScheme.fontColor,
               fontWeight: FontWeight.normal),
@@ -440,12 +440,7 @@ class _LoginPageState extends State<Login> with TickerProviderStateMixin {
           ),
           suffixIcon: InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                      builder: (context) => SendOtp(
-                            title: getTranslated(context, 'FORGOT_PASS_TITLE'),
-                          )));
+
             },
             child: Text(
               getTranslated(context, "FORGOT_LBL")!,
@@ -526,11 +521,7 @@ class _LoginPageState extends State<Login> with TickerProviderStateMixin {
                   fontWeight: FontWeight.normal)),
           InkWell(
               onTap: () {
-                Navigator.of(context).push(CupertinoPageRoute(
-                  builder: (BuildContext context) => SendOtp(
-                    title: getTranslated(context, 'SEND_OTP_TITLE'),
-                  ),
-                ));
+
               },
               child: Text(
                 getTranslated(context, 'SIGN_UP_LBL')!,
@@ -661,8 +652,8 @@ class _LoginPageState extends State<Login> with TickerProviderStateMixin {
       child: SizedBox(
         width: 100,
         height: 100,
-        child: SvgPicture.asset(
-          'assets/images/loginlogo.svg',
+        child: Image.asset(
+          'assets/images/logo.png',
         ),
       ),
     );

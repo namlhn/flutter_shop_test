@@ -408,7 +408,7 @@ String? getPriceFormat(BuildContext context, double price) {
   return NumberFormat.currency(
           locale: Platform.localeName,
           name: SUPPORTED_LOCALES,
-          symbol: " VND ")
+          symbol:' USD ')
       .format(price)
       .toString();
 }

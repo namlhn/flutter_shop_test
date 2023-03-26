@@ -136,11 +136,20 @@ class _HomePageState extends State<Dashboard>
       elevation: 0,
       centerTitle: false,
       automaticallyImplyLeading: false,
-      title: Text(
-              title!,
-              style:  GoogleFonts.playfairDisplay(
-                  color: colors.primary, fontWeight: FontWeight.normal),
-            ),
+      title: Row(
+        children: [
+          ClipRRect(
+            child: Image.asset('assets/images/logo.png', height: 32,),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          SizedBox(width: 10,),
+          Text(
+            title!,
+            style:  GoogleFonts.playfairDisplay(
+                color: colors.primary, fontWeight: FontWeight.normal),
+          )
+        ],
+      ),
       actions: <Widget>[
         IconButton(
           icon: SvgPicture.asset(

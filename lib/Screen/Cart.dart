@@ -2884,7 +2884,7 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold)),
                         onPressed: () {
-                          if (payMethod == 'CHUYỂN KHOẢN') {
+                          if (payMethod == 'BANK TRANSFER') {
                             Navigator.pop(context);
                             bankTransfer();
                           } else if (payMethod == 'ZakumiFi Coin') {
@@ -2893,7 +2893,7 @@ class StateCart extends State<Cart> with TickerProviderStateMixin {
                           } else if (payMethod == 'PAYPAL') {
                             Navigator.pop(context);
                             paypalSend();
-                          } else if (payMethod == 'Coin') {
+                          } else if (payMethod == 'DIGITAL COIN') {
                             Navigator.pop(context);
                             coinbasePayment();
                           } else {

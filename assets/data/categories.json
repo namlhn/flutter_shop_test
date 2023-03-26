@@ -5,7 +5,7 @@
     "data": [
         {
             "id": "14",
-            "name": "Thời trang",
+            "name": "Fashion",
             "parent_id": "0",
             "slug": "fashion",
             "image": "https://eshopweb.store/uploads/media/2022/fashion1.png",
@@ -300,7 +300,7 @@
         },
         {
             "id": "123",
-            "name": "Công nghệ ",
+            "name": "Digital",
             "parent_id": "0",
             "slug": "digital",
             "image": "https://eshopweb.store/uploads/media/2020/thumb-sm/GAMEZONE1.png",
@@ -318,7 +318,7 @@
         },
         {
             "id": "35",
-            "name": "Gia đình",
+            "name": "Baby care",
             "parent_id": "0",
             "slug": "baby-care-1",
             "image": "https://eshopweb.store/uploads/media/2022/baby.png",
@@ -388,7 +388,7 @@
         },
         {
             "id": "12",
-            "name": "Rau củ",
+            "name": "Vegetable",
             "parent_id": "0",
             "slug": "vegetable",
             "image": "https://eshopweb.store/uploads/media/2022/Vegetables.png",
@@ -441,7 +441,7 @@
         },
         {
             "id": "13",
-            "name": "Gia dụng",
+            "name": "Electronics",
             "parent_id": "0",
             "slug": "electronics",
             "image": "https://eshopweb.store/uploads/media/2022/Electronic1.png",
@@ -682,7 +682,7 @@
         },
         {
             "id": "11",
-            "name": "Tạp hóa",
+            "name": "Groceries",
             "parent_id": "0",
             "slug": "groceries-1",
             "image": "https://eshopweb.store/uploads/media/2022/Grocery.png",
@@ -786,7 +786,7 @@
         },
         {
             "id": "20",
-            "name": "Nội thất",
+            "name": "Home",
             "parent_id": "0",
             "slug": "home",
             "image": "https://eshopweb.store/uploads/media/2022/Household.png",

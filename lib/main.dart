@@ -23,6 +23,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -163,7 +164,7 @@ class _MyAppState extends State<MyApp> {
             ChangeNotifierProvider<OfferImagesProvider>(
                 create: (context) => OfferImagesProvider()),
           ],
-          child: MaterialApp(
+          child: GetMaterialApp(
             locale: _locale,
             //scaffoldMessengerKey: scaffoldMessageKey,
             supportedLocales: const [
@@ -178,7 +179,7 @@ class _MyAppState extends State<MyApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             localeResolutionCallback: (locale, supportedLocales) {
-             /*
+              /*
               for (var supportedLocale in supportedLocales) {
                 if (supportedLocale.languageCode == locale!.languageCode &&
                     supportedLocale.countryCode == locale.countryCode) {
@@ -198,7 +199,8 @@ class _MyAppState extends State<MyApp> {
             },
 
             themeMode: themeNotifier.getThemeMode(),
-          ));
+          )
+    );
     }
   }
 }

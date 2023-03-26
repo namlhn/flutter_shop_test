@@ -17,6 +17,7 @@ import 'package:eshop/Provider/CategoryProvider.dart';
 import 'package:eshop/Provider/FavoriteProvider.dart';
 import 'package:eshop/Provider/HomeProvider.dart';
 import 'package:eshop/Provider/UserProvider.dart';
+import 'package:eshop/Screen/Login.dart';
 import 'package:eshop/Screen/Search.dart';
 import 'package:eshop/Screen/SubCategory.dart';
 import 'package:eshop/ui/widgets/AppBtn.dart';
@@ -25,6 +26,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,7 +36,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../Provider/ProductProvider.dart';
 import '../ui/styles/DesignConfig.dart';
 import '../ui/styles/Validators.dart';
-import 'Login.dart';
+
 import 'ProductList.dart';
 import 'Product_DetailNew.dart';
 import 'SectionList.dart';
@@ -64,7 +66,6 @@ class _HomePageState extends State<HomePage>
   late AnimationController buttonController;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-//  List<Model> offerImages = [];
   final ScrollController _scrollBottomBarController = ScrollController();
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
       GlobalKey<RefreshIndicatorState>();
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
 
     callApi();
-
+   // showPopUpOfferDialog();
     buttonController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
 
@@ -112,7 +113,6 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     hideAppbarAndBottomBarOnScroll(_scrollBottomBarController, context);
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage>
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
-                //  controller: _scrollBottomBarController,
+                  //  controller: _scrollBottomBarController,
                   child: Column(
                     children: [
                       _deliverPincode(),
@@ -142,12 +142,12 @@ class _HomePageState extends State<HomePage>
   }
 
   Future<void> _refresh() {
-   // context.read<HomeProvider>().setCatLoading(true);
-   // context.read<HomeProvider>().setSecLoading(true);
+    // context.read<HomeProvider>().setCatLoading(true);
+    // context.read<HomeProvider>().setSecLoading(true);
     //context.read<HomeProvider>().setOfferLoading(true);
     //context.read<HomeProvider>().setMostLikeLoading(true);
-   // context.read<HomeProvider>().setSliderLoading(true);
-   // context.read<CategoryProvider>().setCurSelected(0);
+    // context.read<HomeProvider>().setSliderLoading(true);
+    // context.read<CategoryProvider>().setCurSelected(0);
     proIds.clear();
 
     return callApi();
@@ -186,11 +186,10 @@ class _HomePageState extends State<HomePage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: map<Widget>(
               homeSliderList,
-                  (index, url) {
+              (index, url) {
                 return AnimatedContainer(
                     duration: const Duration(milliseconds: 500),
-                    width: context.read<HomeProvider>().curSlider ==
-                        index
+                    width: context.read<HomeProvider>().curSlider == index
                         ? 25
                         : 8.0,
                     height: 8.0,
@@ -198,13 +197,12 @@ class _HomePageState extends State<HomePage>
                         vertical: 10.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5.0),
-                      color: context.read<HomeProvider>().curSlider ==
-                          index
+                      color: context.read<HomeProvider>().curSlider == index
                           ? Theme.of(context).colorScheme.fontColor
                           : Theme.of(context)
-                          .colorScheme
-                          .lightBlack
-                          .withOpacity(0.7),
+                              .colorScheme
+                              .lightBlack
+                              .withOpacity(0.7),
                     ));
               },
             ),
@@ -818,20 +816,7 @@ class _HomePageState extends State<HomePage>
                         tag: "$homeHero$index${product.id}$secPos",
                         child: networkImageCommon(product.image!, width, false,
                             height: double.maxFinite,
-                            width: double
-                                .maxFinite) /*CachedNetworkImage(
-                          fadeInDuration: const Duration(milliseconds: 150),
-                          imageUrl: product.image!,
-                          height: double.maxFinite,
-                          width: double.maxFinite,
-                          fit: extendImg ? BoxFit.fill : BoxFit.fitHeight,
-                          errorWidget: (context, error, stackTrace) =>
-                              erroWidget(double.maxFinite),
-                          //fit: BoxFit.fill,
-                          placeholder: (context, url) {
-                            return placeHolder(width);
-                          }),*/
-                        )),
+                            width: double.maxFinite))),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.only(
@@ -939,87 +924,6 @@ class _HomePageState extends State<HomePage>
       itemBuilder: (context, index) {
         return _singleSection(index);
       },
-    );
-  }
-
-  _mostLike() {
-    return Selector<HomeProvider, bool>(
-      builder: (context, data, child) {
-        return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Stack(children: [
-                Positioned.fill(
-                  child: Container(
-                      margin: const EdgeInsets.only(bottom: 40),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.back3,
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)))),
-                ),
-                Selector<ProductProvider, List<Product>>(
-                  builder: (context, data1, child) {
-                    return data1.isNotEmpty
-                        ? Padding(
-                            padding: const EdgeInsets.only(top: 10.0),
-                            child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  _getHeading(
-                                      "You might also like", 0, 2, data1),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child: GridView.count(
-                                        padding:
-                                            const EdgeInsetsDirectional.only(
-                                                top: 5),
-                                        crossAxisCount: 2,
-                                        shrinkWrap: true,
-                                        //childAspectRatio: 0.8,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        children: List.generate(
-                                          data1.length < 4 ? data1.length : 4,
-                                          (index) {
-                                            return productItem(
-                                                0,
-                                                index,
-                                                index % 2 == 0 ? true : false,
-                                                data1[index],
-                                                2,
-                                                data1.length);
-                                          },
-                                        )),
-                                  ),
-                                  //  setHeadTitle("You might also like",context),
-                                  /*Container(
-                            height: 230,
-                           // padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child:  ListView.builder(
-                                      physics:
-                                      const AlwaysScrollableScrollPhysics(),
-                                      scrollDirection: Axis.horizontal,
-                                      shrinkWrap: true,
-                                       itemCount:  data1.length,
-                                      itemBuilder: (context, index) {
-                                        return productItemView(index, data1,context);
-                                      },
-                                    ),
-                            ),
-                          ),*/
-                                ]))
-                        : const SizedBox();
-                  },
-                  selector: (_, provider) => provider.productList,
-                )
-              ]))
-        ]);
-      },
-      selector: (_, homeProvider) => homeProvider.mostLikeLoading,
     );
   }
 
@@ -1144,7 +1048,6 @@ class _HomePageState extends State<HomePage>
   }
 
   Future<void> callApi() async {
-
     _isNetworkAvail = await isNetworkAvailable();
     if (_isNetworkAvail) {
       getSetting();
@@ -1159,92 +1062,14 @@ class _HomePageState extends State<HomePage>
     return;
   }
 
-  Future _getFav() async {
-    try {
-      _isNetworkAvail = await isNetworkAvailable();
-      if (_isNetworkAvail) {
-        if (CUR_USERID != null) {
-          Map parameter = {
-            USER_ID: CUR_USERID,
-          };
-
-          apiBaseHelper.postAPICall(getFavApi, parameter).then((getdata) {
-            bool error = getdata["error"];
-            String? msg = getdata["message"];
-            if (!error) {
-              var data = getdata["data"];
-
-              List<Product> tempList =
-                  (data as List).map((data) => Product.fromJson(data)).toList();
-
-              context.read<FavoriteProvider>().setFavlist(tempList);
-            } else {
-              if (msg != 'No Favourite(s) Product Are Added') {
-                setSnackbar(msg!, context);
-              }
-            }
-
-            context.read<FavoriteProvider>().setLoading(false);
-          }, onError: (error) {
-            setSnackbar(error.toString(), context);
-            context.read<FavoriteProvider>().setLoading(false);
-          });
-        } else {
-          context.read<FavoriteProvider>().setLoading(false);
-          Navigator.push(
-            context,
-            CupertinoPageRoute(builder: (context) => const Login()),
-          );
-        }
-      } else {
-        if (mounted) {
-          setState(() {
-            _isNetworkAvail = false;
-          });
-        }
-      }
-    } on FormatException catch (e) {
-      setSnackbar(e.message, context);
-    }
-  }
-
-  /* void getOfferImages() {
-    try {
-      Map parameter = {};
-
-      apiBaseHelper.postAPICall(getOfferImageApi, parameter).then((getdata) {
-        bool error = getdata["error"];
-        String? msg = getdata["message"];
-        if (!error) {
-          var data = getdata["data"];
-          offerImages.clear();
-          offerImages =
-              (data as List).map((data) => Model.fromSlider(data)).toList();
-        } else {
-          setSnackbar(msg!, context);
-        }
-
-        context.read<HomeProvider>().setOfferLoading(false);
-      }, onError: (error) {
-        setSnackbar(error.toString(), context);
-        context.read<HomeProvider>().setOfferLoading(false);
-      });
-    } on FormatException catch (e) {
-      setSnackbar(e.message, context);
-    }
-  }*/
-
   void getSection() async {
     var dataJson = await readJsonAssets('assets/data/sections.json');
     var data = dataJson["data"];
 
-    sectionList = (data as List)
-        .map((data) => SectionModel.fromJson(data))
-        .toList();
+    sectionList =
+        (data as List).map((data) => SectionModel.fromJson(data)).toList();
 
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   void getSetting() async {
@@ -1263,8 +1088,8 @@ class _HomePageState extends State<HomePage>
       // getMostLikePro();
       // proIds1 = (await db.getMostFav())!;
       //getMostFavPro();
-
-      cartBtnList = true ;
+      showPopUpOfferDialog();
+      cartBtnList = true;
       refer = true;
       CUR_CURRENCY = 'VND ';
       RETURN_DAYS = data['max_product_return_days'];
@@ -1285,9 +1110,6 @@ class _HomePageState extends State<HomePage>
       IS_LOCAL_ON =
           setRes["data"]["shipping_method"][0]["local_shipping_method"];
       ALLOW_ATT_MEDIA = data[ALLOW_ATTACH];
-
-
-
     } on FormatException catch (e) {
       setSnackbar(e.message, context);
     }
@@ -1386,165 +1208,6 @@ class _HomePageState extends State<HomePage>
       setState(() {
         context.read<HomeProvider>().setMostLikeLoading(false);
       });
-    }
-  }
-
-  Future<void> _getOffCart() async {
-    if (CUR_USERID == null || CUR_USERID == "") {
-      List<String>? proIds = (await db.getCart())!;
-
-      if (proIds.isNotEmpty) {
-        _isNetworkAvail = await isNetworkAvailable();
-
-        if (_isNetworkAvail) {
-          try {
-            var parameter = {"product_variant_ids": proIds.join(',')};
-            apiBaseHelper.postAPICall(getProductApi, parameter).then(
-                (getdata) async {
-              bool error = getdata["error"];
-              String? msg = getdata["message"];
-              if (!error) {
-                var data = getdata["data"];
-
-                List<Product> tempList = (data as List)
-                    .map((data) => Product.fromJson(data))
-                    .toList();
-                List<SectionModel> cartSecList = [];
-                for (int i = 0; i < tempList.length; i++) {
-                  for (int j = 0; j < tempList[i].prVarientList!.length; j++) {
-                    if (proIds.contains(tempList[i].prVarientList![j].id)) {
-                      String qty = (await db.checkCartItemExists(
-                          tempList[i].id!, tempList[i].prVarientList![j].id!))!;
-                      List<Product>? prList = [];
-                      prList.add(tempList[i]);
-                      cartSecList.add(SectionModel(
-                        id: tempList[i].id,
-                        varientId: tempList[i].prVarientList![j].id,
-                        qty: qty,
-                        productList: prList,
-                      ));
-                    }
-                  }
-                }
-
-                context.read<CartProvider>().setCartlist(cartSecList);
-              }
-              if (mounted) {
-                setState(() {
-                  context.read<CartProvider>().setProgress(false);
-                });
-              }
-            }, onError: (error) {
-              setSnackbar(error.toString(), context);
-            });
-          } on TimeoutException catch (_) {
-            setSnackbar(getTranslated(context, 'somethingMSg')!, context);
-            context.read<CartProvider>().setProgress(false);
-          }
-        } else {
-          if (mounted) {
-            setState(() {
-              _isNetworkAvail = false;
-              context.read<CartProvider>().setProgress(false);
-            });
-          }
-        }
-      } else {
-        context.read<CartProvider>().setCartlist([]);
-        setState(() {
-          context.read<CartProvider>().setProgress(false);
-        });
-      }
-    }
-  }
-
-  Future<void> _getOffFav() async {
-    if (CUR_USERID == null || CUR_USERID == "") {
-      List<String>? proIds = (await db.getFav())!;
-      if (proIds.isNotEmpty) {
-        _isNetworkAvail = await isNetworkAvailable();
-
-        if (_isNetworkAvail) {
-          try {
-            var parameter = {"product_ids": proIds.join(',')};
-            apiBaseHelper.postAPICall(getProductApi, parameter).then((getdata) {
-              bool error = getdata["error"];
-              String? msg = getdata["message"];
-              if (!error) {
-                var data = getdata["data"];
-
-                List<Product> tempList = (data as List)
-                    .map((data) => Product.fromJson(data))
-                    .toList();
-
-                context.read<FavoriteProvider>().setFavlist(tempList);
-              }
-              if (mounted) {
-                setState(() {
-                  context.read<FavoriteProvider>().setLoading(false);
-                });
-              }
-            }, onError: (error) {
-              setSnackbar(error.toString(), context);
-            });
-          } on TimeoutException catch (_) {
-            setSnackbar(getTranslated(context, 'somethingMSg')!, context);
-            context.read<FavoriteProvider>().setLoading(false);
-          }
-        } else {
-          if (mounted) {
-            setState(() {
-              _isNetworkAvail = false;
-              context.read<FavoriteProvider>().setLoading(false);
-            });
-          }
-        }
-      } else {
-        context.read<FavoriteProvider>().setFavlist([]);
-        setState(() {
-          context.read<FavoriteProvider>().setLoading(false);
-        });
-      }
-    }
-  }
-
-  Future<void> _getCart(String save) async {
-    try {
-      _isNetworkAvail = await isNetworkAvailable();
-
-      if (_isNetworkAvail) {
-        if (CUR_USERID != null) {
-          try {
-            var parameter = {
-              USER_ID: CUR_USERID,
-              SAVE_LATER: save,
-              "only_delivery_charge": "0",
-            };
-            apiBaseHelper.postAPICall(getCartApi, parameter).then((getdata) {
-              bool error = getdata["error"];
-              String? msg = getdata["message"];
-              if (!error) {
-                var data = getdata["data"];
-
-                List<SectionModel> cartList = (data as List)
-                    .map((data) => SectionModel.fromCart(data))
-                    .toList();
-                context.read<CartProvider>().setCartlist(cartList);
-              }
-            }, onError: (error) {
-              setSnackbar(error.toString(), context);
-            });
-          } on TimeoutException catch (_) {}
-        }
-      } else {
-        if (mounted) {
-          setState(() {
-            _isNetworkAvail = false;
-          });
-        }
-      }
-    } on FormatException catch (e) {
-      setSnackbar(e.message, context);
     }
   }
 
@@ -2202,84 +1865,81 @@ class _HomePageState extends State<HomePage>
   }
 
   void showPopUpOfferDialog() async {
-    print("image is ${popUpOffer.image}");
-    try {
-      SharedPreferences sharedData = await SharedPreferences.getInstance();
-      sharedData.setString("offerPopUpID", popUpOffer.id.toString());
-
-      if (popUpOffer.showMultipleTime == "1") {}
-      await dialogAnimate(context, StatefulBuilder(
-          builder: (BuildContext context, StateSetter setStater) {
-        print("image ${popUpOffer.image}");
-        print("image ${popUpOffer.image}");
-        return Dialog(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(5.0))),
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          child: InkWell(
-            onTap: () {
-              popUpOfferImageClick();
-            },
-            child: Container(
-              margin: const EdgeInsets.only(left: 0.0, right: 0.0),
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                      /*  padding: const EdgeInsets.only(
+    await dialogAnimate(context,
+        StatefulBuilder(builder: (BuildContext context, StateSetter setStater) {
+      return Dialog(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5.0))),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            popUpOfferImageClick();
+          },
+          child: Container(
+            margin: const EdgeInsets.only(left: 0.0, right: 0.0),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                    /*  padding: const EdgeInsets.only(
                       top: 18.0,
                     ),*/
-                      margin: const EdgeInsets.only(
-                          top: 13.0, right: 8.0, left: 8.0),
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(15.0),
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                              color: (Theme.of(context).colorScheme.white)
-                                  .withOpacity(0.5),
-                              blurRadius: 0.0,
-                              offset: const Offset(0.0, 0.0),
-                            ),
-                          ]),
-                      child: ClipRRect(
+                    margin:
+                        const EdgeInsets.only(top: 13.0, right: 8.0, left: 8.0),
+         
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(15.0),
-                        child: networkImageCommon(
-                            popUpOffer.image!,
-                            50,
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.5,
-                            false,
-                            boxFit: BoxFit.fill),
-                      )),
-                  Positioned(
-                    right: 0.0,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: CircleAvatar(
-                          radius: 14.0,
-                          backgroundColor: (Theme.of(context).colorScheme.white)
-                              .withOpacity(0.7),
-                          child: const Icon(Icons.close, color: colors.red),
-                        ),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: (Theme.of(context).colorScheme.white)
+                                .withOpacity(0.5),
+                            blurRadius: 0.0,
+                            offset: const Offset(0.0, 0.0),
+                          ),
+                        ]),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Image.asset('assets/images/offerpopup.png',
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.contain),
+                    )),
+                Positioned(
+                  right: 0.0,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: CircleAvatar(
+                        radius: 14.0,
+                        backgroundColor: (Theme.of(context).colorScheme.white)
+                            .withOpacity(0.7),
+                        child: const Icon(Icons.close, color: colors.red),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+                Positioned(
+                  bottom:0,
+                  left: MediaQuery.of(context).size.width / 2 - 100,
+                  child: ElevatedButton(onPressed: (){
+                    Get.to(()=> const Login());
+                  }, child: const Text('Go to Login'), style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 0,
+                    minimumSize: Size(120, 35)
+                  ),),
+                )
+              ],
             ),
           ),
-        );
-      }));
-    } catch (e) {
-      print("error ${e.toString()}");
-    }
+        ),
+      );
+    }));
   }
 
   popUpOfferImageClick() async {
